@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:thinkingmachines.ai)",
+      "Bash(del \"C:\\\\Users\\\\sjmsy\\\\documents\\\\syz-labs\\\\ssyz.github.io\\\\blog.html\" \"C:\\\\Users\\\\sjmsy\\\\documents\\\\syz-labs\\\\ssyz.github.io\\\\data-analysis-techniques.html\")",
+      "Bash(dir \"C:\\\\Users\\\\sjmsy\\\\documents\\\\syz-labs\\\\ssyz.github.io\")"
+    ]
+  }
+}
