@@ -71,8 +71,9 @@ header {
 .amplify {
   background: linear-gradient(135deg, #6366f1, #ec4899, #f97316);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   display: inline-block;
   animation: amplifyGlow 2s ease-out forwards;
   transition: all 0.3s ease;
@@ -83,8 +84,8 @@ header {
   -webkit-text-fill-color: white;
   color: white;
   background: linear-gradient(135deg, #6366f1, #ec4899, #f97316);
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
   padding: 0 0.1em;
   margin: 0 -0.1em;
   border-radius: 4px;
