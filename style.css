@@ -163,6 +163,7 @@ header {
   top: calc(100% + 8px);
   left: 0;
   width: 340px;
+  max-width: calc(100vw - 48px);
   background: #fff;
   border-radius: 10px;
   padding: 16px 18px;
@@ -358,8 +359,18 @@ header, main, footer {
     font-size: 1.8rem;
   }
 
+  .block {
+    position: relative;
+  }
+
+  .stat-hover {
+    position: static;
+  }
+
   .stat-popover {
-    width: 280px;
+    width: calc(100% - 0px);
+    left: 0;
+    max-width: none;
   }
 
   .content {
