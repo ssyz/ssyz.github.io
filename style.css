@@ -7,12 +7,13 @@
 
 /* Base */
 :root {
-  --color-bg: #eef5fc;
-  --color-text: #1a2a3a;
-  --color-text-muted: #5a7184;
-  --color-accent: #2c3e50;
+  --color-bg: #faf9f0;
+  --color-text: #131314;
+  --color-text-muted: #5c5c5c;
+  --color-accent: #d97757;
+  --color-border: #d4d1c7;
   --max-width: 860px;
-  --spacing-section: 64px;
+  --spacing-section: 80px;
 }
 
 html {
@@ -37,14 +38,14 @@ header, main, footer {
 
 /* Header */
 header {
-  padding-top: 48px;
+  padding-top: 64px;
   padding-bottom: 0;
 }
 
 .logo {
   font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 /* Hero */
@@ -53,10 +54,11 @@ header {
 }
 
 .hero h1 {
+  font-family: 'Source Serif Pro', 'Georgia', 'Times New Roman', serif;
   font-size: 2.8rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   max-width: 50ch;
   margin-bottom: 16px;
 }
@@ -69,33 +71,18 @@ header {
 }
 
 .amplify {
-  background: linear-gradient(135deg, #3b82f6, #6366f1, #38bdf8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline-block;
-  animation: amplifyGlow 2s ease-out forwards;
-  transition: all 0.3s ease;
+  color: var(--color-accent);
+  display: inline;
+  transition: all 0.2s ease;
   cursor: default;
-}
-
-.amplify:hover {
-  -webkit-text-fill-color: white;
-  color: white;
-  background: linear-gradient(135deg, #3b82f6, #6366f1, #38bdf8);
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  padding: 0 0.1em;
-  margin: 0 -0.1em;
   border-radius: 4px;
 }
 
-@keyframes amplifyGlow {
-  0%, 100% { filter: brightness(1); }
-  25% { filter: brightness(1.4); }
-  50% { filter: brightness(1.2); }
-  75% { filter: brightness(1.3); }
+.amplify:hover {
+  color: var(--color-bg);
+  background: var(--color-accent);
+  padding: 0 0.15em;
+  margin: 0 -0.15em;
 }
 
 /* Headline Stat */
@@ -116,12 +103,12 @@ header {
 
 .headline-stat-border rect {
   fill: none;
-  stroke: #7ab2e0;
-  stroke-width: 2;
+  stroke: #c9c5b8;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 8 6;
-  opacity: 0.35;
+  opacity: 0.5;
 }
 
 .headline-stat p {
@@ -136,11 +123,7 @@ header {
   font-weight: 600;
   line-height: 1;
   vertical-align: baseline;
-  background: linear-gradient(135deg, #3b82f6, #6366f1, #38bdf8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--color-accent);
 }
 
 .stat-source {
@@ -203,7 +186,7 @@ header {
 }
 
 .block {
-  padding: 48px 0;
+  padding: 56px 0;
 }
 
 .block:last-child {
@@ -211,10 +194,10 @@ header {
 }
 
 .block h2 {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
   color: var(--color-text-muted);
   margin-bottom: 12px;
 }
@@ -238,7 +221,7 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--color-text-muted);
+  color: var(--color-accent);
 }
 
 /* Background Doodles */
@@ -252,10 +235,10 @@ footer a:hover {
 
 .bg-doodles svg {
   position: absolute;
-  opacity: 0.18;
-  stroke: #7ab2e0;
+  opacity: 0.12;
+  stroke: #c9c5b8;
   fill: none;
-  stroke-width: 2;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -264,52 +247,52 @@ footer a:hover {
   width: 120px;
   top: 8%;
   left: 5%;
-  animation: float1 14s ease-in-out infinite;
+  animation: float1 18s ease-in-out infinite;
 }
 
 .doodle-2 {
   width: 100px;
   top: 25%;
   right: 8%;
-  animation: float2 18s ease-in-out infinite;
+  animation: float2 23s ease-in-out infinite;
 }
 
 .doodle-3 {
   width: 110px;
   top: 55%;
   left: 10%;
-  animation: float3 16s ease-in-out infinite;
+  animation: float3 21s ease-in-out infinite;
 }
 
 .doodle-4 {
   width: 90px;
   top: 70%;
   right: 12%;
-  animation: float1 20s ease-in-out infinite reverse;
+  animation: float1 26s ease-in-out infinite reverse;
 }
 
 .doodle-5 {
   width: 100px;
   top: 40%;
   left: 80%;
-  animation: float2 15s ease-in-out infinite;
+  animation: float2 20s ease-in-out infinite;
 }
 
 @keyframes float1 {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(12px, -18px) rotate(6deg); }
-  66% { transform: translate(-8px, 10px) rotate(-4deg); }
+  33% { transform: translate(8px, -12px) rotate(4deg); }
+  66% { transform: translate(-5px, 7px) rotate(-3deg); }
 }
 
 @keyframes float2 {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-15px, -20px) rotate(-8deg); }
+  50% { transform: translate(-10px, -14px) rotate(-5deg); }
 }
 
 @keyframes float3 {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(10px, -12px) rotate(5deg); }
-  75% { transform: translate(-12px, 8px) rotate(-6deg); }
+  25% { transform: translate(7px, -8px) rotate(3deg); }
+  75% { transform: translate(-8px, 5px) rotate(-4deg); }
 }
 
 header, main, footer {
@@ -324,15 +307,15 @@ header, main, footer {
   }
 
   header {
-    padding-top: 32px;
+    padding-top: 48px;
   }
 
   :root {
-    --spacing-section: 48px;
+    --spacing-section: 56px;
   }
 
   .hero {
-    padding: 32px 0 48px 0;
+    padding: 40px 0 56px 0;
   }
 
   .hero h1 {
@@ -344,7 +327,7 @@ header, main, footer {
   }
 
   .block {
-    padding: 32px 0;
+    padding: 40px 0;
   }
 
   .block p {
@@ -374,21 +357,21 @@ header, main, footer {
   }
 
   .content {
-    padding-bottom: 32px;
+    padding-bottom: 40px;
   }
 
   footer {
-    padding: 32px 24px;
+    padding: 40px 24px;
   }
 }
 
 @media (max-width: 480px) {
   header {
-    padding-top: 24px;
+    padding-top: 32px;
   }
 
   .hero {
-    padding: 24px 0 40px 0;
+    padding: 32px 0 48px 0;
   }
 
   .hero h1 {
@@ -396,15 +379,15 @@ header, main, footer {
   }
 
   .block {
-    padding: 24px 0;
+    padding: 32px 0;
   }
 
   .content {
-    padding-bottom: 24px;
+    padding-bottom: 32px;
   }
 
   footer {
-    padding: 24px 20px;
+    padding: 32px 20px;
   }
 
   header, main, footer {
