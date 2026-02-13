@@ -31,7 +31,7 @@
     <article class="publication">
       <div class="pub-header">
         <p class="pub-category">AI Evaluation Report</p>
-        <h1 class="pub-title">More than half of MagicSchool's generated text is inappropriate for 3rd graders</h1>
+        <h1 class="pub-title">MagicSchool misses the mark on grade-level text up to 65% of the time</h1>
         <p class="pub-date">February 2026</p>
       </div>
 
@@ -96,6 +96,7 @@
 
           <section id="learning-commons-evaluator">
             <h3>Learning Commons Evaluator</h3>
+            <p>Learning Commons evaluators are developed and validated in collaboration with leading organizations in learning science and pedagogy, including Student Achievement Partners, CAST, and Achievement Network (ANet), using ground-truth datasets that reflect expert teaching and learning principles. In testing, their Grade Level Appropriateness evaluator was 89% accurate against the 2nd to 3rd grade expert-validated dataset.</p>
             <p>Using the MagicSchool CSV as an input, the Grade Level Appropriateness evaluator is implemented as a Python script (<a href="https://github.com/jaysyzz/magicschool-eval/blob/main/run_grade_level_appropriateness_evaluator.py" target="_blank" rel="noopener noreferrer">run_grade_level_appropriateness_evaluator.py</a>) that builds a LangChain evaluation chain powered by Google's Gemini-2.5-pro model.</p> 
             <p>For each piece of generated text, the chain applies a structured, multi-step prompt that guides the LLM through four stages of analysis: a quantitative assessment of word count and Flesch-Kincaid readability, a qualitative complexity rubric examining text structure, language features, purpose, and knowledge demands, a background knowledge assessment, and finally a synthesis step that reconciles these signals into a target grade band (K-1, 2-3, 4-5, 6-8, 9-10, or 11-CCR). Full results are available in the repository <a href="https://github.com/jaysyzz/magicschool-eval/blob/main/magicschool_data_3rd_grade_results.csv" target="_blank" rel="noopener noreferrer">here</a>.</p>
           </section>
