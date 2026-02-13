@@ -45,6 +45,7 @@
           <ul class="pub-toc-list">
             <li><a href="#key-findings" class="pub-toc-link">Key Findings</a></li>
             <li><a href="#methodology" class="pub-toc-link">Methodology</a></li>
+            <li class="toc-sub"><a href="#examples" class="pub-toc-link">Examples</a></li>
             <li class="toc-sub"><a href="#magicschool-text-generation" class="pub-toc-link">MagicSchool Text Generation</a></li>
             <li class="toc-sub"><a href="#learning-commons-evaluator" class="pub-toc-link">Learning Commons Evaluator</a></li>
             <li><a href="#conclusion" class="pub-toc-link">Conclusion</a></li>
@@ -73,6 +74,55 @@
         <section id="methodology">
           <h2>Methodology</h2>
           <p>This assessment intentionally focuses on 3rd grade reading tasks. While these findings should not be over-generalized to all grades or subjects, they offer a high-signal stress test at a critical literacy inflection point.</p>
+
+          <section id="examples">
+            <h3>Examples</h3>
+            <p>To illustrate what "inappropriate for the target grade level" looks like in practice, below are two passages MagicSchool generated for 3rd graders that were evaluated at the 6th to 8th grade reading level.</p>
+
+            <div class="example-card">
+              <div class="example-card-header">
+                <span class="example-topic">Patterns in Motion</span>
+                <div class="example-grades">
+                  <span class="grade-expected">Expected: 3rd Grade</span>
+                  <span class="grade-arrow">&rarr;</span>
+                  <span class="grade-actual">Actual: 6th&ndash;8th Grade</span>
+                </div>
+              </div>
+              <blockquote class="example-text">What are patterns in motion? Patterns in motion happen when an object moves the same way again and again, like a swing that goes back and forth, a toy car that rolls the same distance after each push, or the seasons that repeat each year; by watching these repeats, scientists can often predict what will happen next. How do forces help create patterns? Forces &mdash; pushes and pulls &mdash; make things start, stop, or change direction, and when the same forces act the same way each time (for example, gravity pulling a ball down or a constant push on a skateboard), the motion often follows a pattern. Why do patterns matter? Seeing patterns in motion helps us plan and solve problems: engineers use them to design safer playgrounds and teachers use them to explain how swings and slides work; observing carefully and measuring how things move lets us use past motion to guess future motion.</blockquote>
+              <div class="example-synthesis">There is a profound mismatch between the simplicity of the concepts (appropriate for grades 2&ndash;3) and the extreme complexity of the sentence structure. The text is <strong>unreadable for 3rd graders without teacher support</strong>. Sentences average over 41 words, and use semicolons, colons, and parentheses that most students would not encounter until middle school.</div>
+              <details class="example-reasoning">
+                <summary>Full evaluator analysis</summary>
+                <div class="example-reasoning-body">
+                  <p><strong>Quantitative Analysis:</strong> The text has a word count of 125. The Flesch-Kincaid Grade Level calculates to approximately 18.1. This extremely high score is a direct result of the text's sentence structure, which consists of only three sentences with an average length of over 41 words.</p>
+                  <p><strong>Qualitative Analysis:</strong> The text's purpose (explaining a science concept) is clear and its overall Q&amp;A structure is simple. It uses familiar examples (swings, toy cars) and requires only some discipline-specific knowledge (force, gravity), making its purpose and knowledge demands Moderately Complex at most. However, the Language Features are Exceedingly Complex. The sentences are exceptionally long and convoluted, using advanced punctuation (semicolons, colons, parentheses) that makes the text very difficult to parse for most readers.</p>
+                  <p><strong>Background Knowledge:</strong> The scientific concepts presented &mdash; patterns in motion, pushes and pulls (forces), and using patterns to predict future motion &mdash; align directly with the science curriculum for grades 2&ndash;3.</p>
+                  <p><strong>Synthesis:</strong> There is a profound mismatch between the simplicity of the concepts (appropriate for grades 2&ndash;3) and the extreme complexity of the sentence structure (which the Flesch-Kincaid score places at a post-secondary level). For independent reading, a student would need to be able to decode the complex syntax, which is unlikely before middle school. The text can only be used effectively as a read-aloud where the teacher breaks down the sentences and concepts.</p>
+                </div>
+              </details>
+            </div>
+
+            <div class="example-card">
+              <div class="example-card-header">
+                <span class="example-topic">Variation within a Species</span>
+                <div class="example-grades">
+                  <span class="grade-expected">Expected: 3rd Grade</span>
+                  <span class="grade-arrow">&rarr;</span>
+                  <span class="grade-actual">Actual: 6th&ndash;8th Grade</span>
+                </div>
+              </div>
+              <blockquote class="example-text">Animals and plants that belong to the same species can look or act a little differently from one another because of variation; for example, some ladybugs have more spots than others, some maple trees have darker leaves, and some children inherit curly hair while others have straight hair &mdash; these differences come from traits passed down from parents and from the environment where an organism lives, and they help a species survive because certain traits can make it easier to find food, hide from predators, or live in a particular place.</blockquote>
+              <div class="example-synthesis">The entire passage is a single 95-word sentence. While the concepts and vocabulary are accessible to upper elementary students, the compound-complex syntax &mdash; using semicolons, em-dashes, and multiple dependent clauses &mdash; makes it <strong>only suitable for independent reading at the 6th&ndash;8th grade level</strong>.</div>
+              <details class="example-reasoning">
+                <summary>Full evaluator analysis</summary>
+                <div class="example-reasoning-body">
+                  <p><strong>Quantitative Analysis:</strong> The text has a word count of 95, which is too low to be assessed by the provided word count bands. The text is a single sentence, which results in a Flesch-Kincaid Grade Level of 39.6. This score is artificially and unreliably high because the formula heavily penalizes extremely long sentences. Therefore, the quantitative metrics are not useful for this specific text, and the evaluation must rely on qualitative measures.</p>
+                  <p><strong>Qualitative Analysis:</strong> The text structure is Moderately Complex &mdash; while it is just one sentence, its internal logic is clear, using explicit transitional phrases. However, the sheer length and use of semicolons and an em-dash make the syntax challenging for younger readers. The text uses mostly familiar vocabulary but introduces key scientific terms such as &ldquo;species,&rdquo; &ldquo;variation,&rdquo; &ldquo;inherit,&rdquo; &ldquo;traits,&rdquo; &ldquo;organism,&rdquo; and &ldquo;predators.&rdquo; The primary complexity comes from the compound-complex sentence structure rather than the vocabulary itself.</p>
+                  <p><strong>Background Knowledge:</strong> Students typically begin learning about animal and plant characteristics in early elementary school. The concepts of inherited traits and survival advantages are formally introduced in the 4th and 5th grades. By middle school (grades 6&ndash;8), students are expected to have a firm grasp of these ideas.</p>
+                  <p><strong>Synthesis:</strong> The primary barrier to comprehension is the complex syntax of the single, 95-word sentence. While the concepts and most of the vocabulary are accessible to upper elementary students (grades 4&ndash;5), the sentence structure is more appropriate for a middle school reader (grades 6&ndash;8). For independent reading, the text is best suited for the 6&ndash;8 grade band.</p>
+                </div>
+              </details>
+            </div>
+          </section>
 
           <section id="magicschool-text-generation">
             <h3>MagicSchool Text Generation</h3>
@@ -104,8 +154,7 @@
 
         <section id="conclusion">
           <h2>Conclusion</h2>
-          <p>The results above underscore a central takeaway: surface-level demonstrations of AI performance are insufficient for understanding how these systems behave in real, task-specific contexts. Meaningful evaluation requires breaking tools down into the discrete decisions they make, testing them under realistic constraints, and examining whether they work and where they fail. This evaluation is part of an ongoing effort to bring independent, task-level analysis to AI tools used in education. If your organization is navigating AI
-  adoption decisions and would benefit from this kind of assessment, reach out at <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>.</p>
+          <p>MagicSchool generated text outside of the target grade level about one third of the time, with accuracy varying dramatically by subject; from 86.7% for Social Studies to just 35% for Science. These gaps would not surface in a product demo or pilot. They emerge only when a tool is tested at the task level, against specific grade-level expectations, across a meaningful number of samples. Today, most districts adopting AI tools do not have access to this kind of independent, task-specific analysis. This evaluation is part of an ongoing effort to change that. If your organization would benefit from this kind of assessment, reach out at <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>.</p>
         </section>
       </div>
 

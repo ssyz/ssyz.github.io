@@ -322,6 +322,112 @@
   margin-bottom: 8px;
 }
 
+/* Example Cards */
+.example-card {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+}
+
+.example-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.example-topic {
+  font-family: 'Source Serif Pro', 'Georgia', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.example-grades {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.grade-expected {
+  color: var(--color-text-muted);
+}
+
+.grade-arrow {
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+.grade-actual {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.example-text {
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 3px solid var(--color-border);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.example-synthesis {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: rgba(217, 119, 87, 0.06);
+  border-radius: 6px;
+}
+
+.example-reasoning {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.example-reasoning summary {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.example-reasoning summary:hover {
+  color: var(--color-text);
+}
+
+.example-reasoning-body {
+  margin-top: 12px;
+  padding-left: 4px;
+  line-height: 1.65;
+}
+
+.example-reasoning-body p {
+  font-size: 0.85rem !important;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  .example-card {
+    padding: 20px;
+  }
+
+  .example-card-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
 /* Wide screens — TOC sidebar */
 @media (min-width: 1200px) {
   .pub-body {

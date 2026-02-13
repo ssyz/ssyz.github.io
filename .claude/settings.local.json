@@ -17,7 +17,8 @@
       "Bash(git -C \"C:\\\\Users\\\\sjmsy\\\\documents\\\\syz-labs\\\\ssyz.github.io\" status)",
       "Bash(git -C \"C:\\\\Users\\\\sjmsy\\\\documents\\\\syz-labs\\\\ssyz.github.io\" commit -m \"Add light blue color palette and floating background doodles\n\nShift color scheme to soft blue tones and add hand-drawn SVG\nillustrations with gentle floating animations in the background.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
       "WebFetch(domain:www.anthropic.com)",
-      "WebFetch(domain:ai-2027.com)"
+      "WebFetch(domain:ai-2027.com)",
+      "WebFetch(domain:docs.learningcommons.org)"
     ]
   }
 }
