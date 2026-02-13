@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MagicSchool AI Evaluation – OurDojo</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../publication.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="reading-progress">
+    <div class="reading-progress-fill"></div>
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <a href="../index.html" class="logo">OurDojo</a>
+      <div class="nav-links">
+        <a href="../research.html" class="nav-link">Research</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="publication">
+      <div class="pub-header">
+        <p class="pub-category">AI Evaluation Report</p>
+        <h1 class="pub-title">More than half of MagicSchool's generated text is inappropriate for 3rd graders</h1>
+        <p class="pub-date">February 2026</p>
+      </div>
+
+      <figure class="pub-hero-image">
+        <img src="../images/header stats.png" alt="Rate of Inappropriate Grade Level Text Generation by Topic — Science: 65% inappropriate, Social Studies: 13.3% inappropriate" />
+      </figure>
+
+      <div class="pub-body">
+        <nav class="pub-toc">
+          <p class="pub-toc-heading">Contents</p>
+          <ul class="pub-toc-list">
+            <li><a href="#key-findings" class="pub-toc-link">Key Findings</a></li>
+            <li><a href="#methodology" class="pub-toc-link">Methodology</a></li>
+            <li class="toc-sub"><a href="#magicschool-text-generation" class="pub-toc-link">MagicSchool Text Generation</a></li>
+            <li class="toc-sub"><a href="#learning-commons-evaluator" class="pub-toc-link">Learning Commons Evaluator</a></li>
+            <li><a href="#conclusion" class="pub-toc-link">Conclusion</a></li>
+            <li><a href="#work-with-us" class="pub-toc-link">Work With Us</a></li>
+          </ul>
+        </nav>
+        <section>
+          <p>AI in education is no longer theory, but an extremely prevalent<sup class="footnote-ref" data-footnote="1">1</sup> part of students' and teachers' lives. One of the most popular AI platforms for education is MagicSchool, which boasts <a href="https://www.magicschool.ai/blog-posts/series-b-fundraise-for-teacher-ai" target="_blank" rel="noopener noreferrer">millions of users</a> and more than 10,000 schools around the world. Until now, most discussions about MagicSchool have highlighted its rapid adoption rate, and notably lack scientific evaluation of the quality of their capabilities. Our new analysis fills this gap by applying a <a href="https://docs.learningcommons.org/evaluators/understanding-evaluators/about-evaluators" target="_blank" rel="noopener noreferrer">Learning Commons evaluator</a>, which was developed in partnership with experts in learning science and pedagogy, to MagicSchool's text generation abilities.</p>
+        </section>
+
+        <section id="key-findings">
+          <div class="key-findings-box">
+            <h2>Key Findings</h2>
+            <div class="key-finding">
+              <p><strong>Science text is inappropriate for the target grade level more than half the time</strong><br />MagicSchool's Informational Texts tool generates text for Science class that is inappropriate for the provided grade level more than half (65%) of the time.</p>
+            </div>
+            <div class="key-finding">
+              <p><strong>Grade level appropriateness varies significantly by subject</strong><br />MagicSchool's grade level appropriateness varies by subject — the platform performs significantly better at generating text for Social Studies than it does for Science.</p>
+            </div>
+            <div class="key-finding">
+              <p><strong>About one third of generated text falls outside the target grade level</strong><br />Across those two subjects, MagicSchool generated text outside of the target grade level about one third (34%) of the time.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="methodology">
+          <h2>Methodology</h2>
+          <p>This assessment intentionally focuses on 3rd grade reading tasks. While these findings should not be over-generalized to all grades or subjects, they offer a high-signal stress test at a critical literacy inflection point.</p>
+
+          <section id="magicschool-text-generation">
+            <h3>MagicSchool Text Generation</h3>
+            <p>Topics were drawn from two uncontroversial, widely-adopted standards frameworks: NGSS (Next Generation Science Standards) for science topics [n=40] and C3 Framework / State Social Studies Standards for social studies topics [n=60].</p>
+            <p>See <a href="https://github.com/jaysyzz/magicschool-eval/blob/main/topics.txt" target="_blank" rel="noopener noreferrer">topics.txt</a> for a full topic list. Once the topics were gathered, we asked MagicSchool directly what tool we should use to generate text as a 3rd grade teacher. We selected the top recommendation: Informational Texts.</p>
+            <figure class="pub-figure">
+              <img src="../images/tool selection - annotated.png" alt="MagicSchool Tool Selection" />
+            </figure>
+            <p>The parameters we used for Informational Texts generation was as follows (also depicted in the screenshot below):</p>
+            <ul>
+              <li>Grade level: 3rd grade</li>
+              <li>Text Length: 1 paragraph</li>
+              <li>Informational Text Type: Expository</li>
+              <li>Topic: Create an informational reading passage for [SUBJECT] in [CATEGORY] about the following topic: [DESCRIPTION]. The passage should be appropriate for independent reading.</li>
+            </ul>
+            <figure class="pub-figure">
+              <img src="../images/text tool example - annotated.png" alt="MagicSchool Informational Text Tool Example" />
+            </figure>
+            <p>We manually collected 100 samples across different topics and logged the results in CSV format. The data schema for this table is available on <a href="https://github.com/jaysyzz/magicschool-eval/blob/main/data-schema.md" target="_blank" rel="noopener noreferrer">Github</a>.</p>
+          </section>
+
+          <section id="learning-commons-evaluator">
+            <h3>Learning Commons Evaluator</h3>
+            <p>Using the MagicSchool CSV as an input, the Grade Level Appropriateness evaluator is implemented as a Python script (<a href="https://github.com/jaysyzz/magicschool-eval/blob/main/run_grade_level_appropriateness_evaluator.py" target="_blank" rel="noopener noreferrer">run_grade_level_appropriateness_evaluator.py</a>) that builds a LangChain evaluation chain powered by Google's Gemini-2.5-pro model.</p> 
+            <p>For each piece of generated text, the chain applies a structured, multi-step prompt that guides the LLM through four stages of analysis: a quantitative assessment of word count and Flesch-Kincaid readability, a qualitative complexity rubric examining text structure, language features, purpose, and knowledge demands, a background knowledge assessment, and finally a synthesis step that reconciles these signals into a target grade band (K-1, 2-3, 4-5, 6-8, 9-10, or 11-CCR). Full results are available in the repository <a href="https://github.com/jaysyzz/magicschool-eval/blob/main/magicschool_data_3rd_grade_results.csv" target="_blank" rel="noopener noreferrer">here</a>.</p>
+          </section>
+        </section>
+
+        <section id="conclusion">
+          <h2>Conclusion</h2>
+          <p>The results above underscore a central takeaway: surface-level demonstrations of AI performance are insufficient for understanding how these systems behave in real, task-specific contexts. Meaningful evaluation requires breaking tools down into the discrete decisions they make, testing them under realistic constraints, and examining whether they work and where they fail.</p>
+        </section>
+
+        <section id="work-with-us">
+          <h2>Work With Us</h2>
+          <p>This evaluation demonstrates how independent, task-level testing can surface meaningful strengths and failure modes in AI-based tools. This form of analysis is designed to be practical as well as rigorous. It can be applied directly to the tools organizations are considering adopting, piloting, or building, and it produces evidence that is usable for governance, procurement, product iteration, and risk assessment.</p>
+          <p>I’m currently supporting a small number of organizations with short, paid evaluations that apply this methodology to the specific tools they are considering or building.</p>
+          <p>If you’re responsible for approving, rejecting, or guiding the use of AI-based tools and want an independent assessment grounded in technical rigor,reach out at <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>.</p>
+        </section>
+      </div>
+
+      <aside class="pub-footnotes">
+        <h2>Notes</h2>
+        <ol>
+          <li id="fn-1">According to one estimate, 93% of K-12 teachers report using digital learning tools in the classroom weekly. Source: Microsoft/PSB Insights 2025 AI in Education Report.</li>
+        </ol>
+      </aside>
+    </article>
+  </main>
+
+  <footer>
+    <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>
+  </footer>
+
+  <script src="../publication.js" defer></script>
+</body>
+</html>
