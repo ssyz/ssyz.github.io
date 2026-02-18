@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFD51KX8B6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WFD51KX8B6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Business – OurDojo</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-doodles">
+    <svg class="doodle-1" viewBox="0 0 60 60"><circle cx="30" cy="30" r="8"/><circle cx="30" cy="30" r="16"/><circle cx="30" cy="30" r="24"/></svg>
+    <svg class="doodle-2" viewBox="0 0 50 50"><circle cx="20" cy="25" r="12"/><circle cx="30" cy="25" r="12"/></svg>
+    <svg class="doodle-3" viewBox="0 0 50 50"><ellipse cx="25" cy="25" rx="20" ry="10"/><ellipse cx="25" cy="25" rx="20" ry="10" transform="rotate(60 25 25)"/><ellipse cx="25" cy="25" rx="20" ry="10" transform="rotate(120 25 25)"/></svg>
+    <svg class="doodle-4" viewBox="0 0 50 50"><circle cx="25" cy="25" r="18" stroke-dasharray="4 4"/></svg>
+    <svg class="doodle-5" viewBox="0 0 60 50"><path d="M15 25 C15 15 25 15 30 25 C35 35 45 35 45 25 C45 15 35 15 30 25 C25 35 15 35 15 25"/></svg>
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">OurDojo</a>
+      <div class="nav-links">
+        <a href="/research" class="nav-link">Research</a>
+        <a href="/business" class="nav-link active">For Business</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="biz-page">
+    <section class="hero">
+      <h1>OurDojo for Business</h1>
+      <p class="research-intro">Websites, analytics, automations, and AI agents built with craft, backed by evidence, and taught to your team.</p>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="content">
+      <div class="block">
+        <p>Education is lifelong, and businesses need to keep learning and innovating to survive. OurDojo's expertise in evaluating AI is uniquely positioned to provide new advantages and growth to your business: thoughtful adoption, observable outcomes, and building real competence. We help businesses learn modern tools, implement them responsibly, and keep improving.</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="block">
+        <h2>Book Your Free Consultation</h2>
+        <div id="biz-contact" class="biz-contact-form">
+        <form action="https://formspree.io/f/xnjbzalp" method="POST">
+          <input type="hidden" name="_subject" value="New consultation request from OurDojo" />
+          <input type="hidden" name="_next" value="https://ourdojo.org/business?thanks=1" />
+          <label for="name">Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message <span class="optional">(optional)</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="What's your biggest bottleneck?"></textarea>
+          <button type="submit">Book a Free Consultation</button>
+          <p class="biz-form-sub">We'll diagnose your biggest bottleneck and map a 2-4 week plan.</p>
+        </form>
+      </div>
+      <script>
+        if (new URLSearchParams(window.location.search).has('thanks')) {
+          document.getElementById('biz-contact').innerHTML =
+            '<p class="biz-thanks">\u2714 Thanks — we\u2019ll be in touch within 24 hours.</p>';
+        }
+      </script>
+      </div>
+
+      <div class="how-we-work">
+        <h2>What to Expect</h2>
+        <ol class="timeline">
+          <li class="timeline-step">
+            <span class="timeline-title">Free 30-min Consult</span>
+            <span class="timeline-desc">Clarify goals and bottlenecks</span>
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-title">1-Week Diagnostic</span>
+            <span class="timeline-desc">Map workflows, measure baselines, pick highest-leverage build</span>
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-title">2-4 Week Build Sprint</span>
+            <span class="timeline-desc">Ship the system, train your team, hand off docs</span>
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-title">Ongoing Support</span>
+            <span class="timeline-desc">Monitoring, iteration, new automations</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h2>Who It's For</h2>
+        <ul class="biz-list">
+          <li>Founder-led businesses that want to level up their tech fast.</li>
+          <li>Teams drowning in manual ops like inbox chaos, scheduling, reporting, follow-ups.</li>
+          <li>Businesses with data but no clarity; no dashboards, no decision rhythm.</li>
+          <li>Anyone curious about AI but unsure what's real vs hype.</li>
+        </ul>
+      </div>
+      
+      <div class="block">
+        <h2>Our Promise</h2>
+        <div class="headline-stat">
+          <svg class="headline-stat-border" preserveAspectRatio="none">
+            <rect x="4" y="4" rx="14" ry="14" width="calc(100% - 8px)" height="calc(100% - 8px)" />
+          </svg>
+          <p><strong>Measurable progress in 2-4 weeks:</strong> fewer manual steps, faster response times, better reporting, and, only if it fits, an AI agent that actually does useful work.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>
+  </footer>
+</body>
+</html>
