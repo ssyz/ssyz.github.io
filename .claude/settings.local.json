@@ -20,7 +20,8 @@
       "WebFetch(domain:ai-2027.com)",
       "WebFetch(domain:docs.learningcommons.org)",
       "WebFetch(domain:github.com)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:principled-situation-4c0.notion.site)"
     ]
   }
 }
