@@ -100,6 +100,84 @@
   document.addEventListener('click', dismiss);
 })();
 
+/* Sourced Term Popovers */
+(function () {
+  var terms = document.querySelectorAll('.sourced-term');
+  if (!terms.length) return;
+
+  var activePopover = null;
+  var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  var isMobile = function () { return window.innerWidth < 768; };
+
+  function dismiss() {
+    if (activePopover) {
+      activePopover.classList.remove('visible');
+      var pop = activePopover;
+      setTimeout(function () { pop.remove(); }, 200);
+      activePopover = null;
+    }
+  }
+
+  function buildPopover(term) {
+    var text = term.getAttribute('data-source-text');
+    var url = term.getAttribute('data-source-url');
+    var label = term.getAttribute('data-source-label');
+
+    var popover = document.createElement('div');
+    popover.className = 'sourced-term-popover';
+    if (isMobile()) popover.classList.add('bottom-sheet');
+
+    var html = '';
+    if (text) html += '<span>' + text + '</span>';
+    if (label && url) {
+      html += ' <a href="' + url + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+    } else if (label) {
+      html += ' <span class="source-label">' + label + '</span>';
+    }
+    popover.innerHTML = html;
+    return popover;
+  }
+
+  function show(term) {
+    dismiss();
+    var popover = buildPopover(term);
+    term.appendChild(popover);
+    requestAnimationFrame(function () {
+      popover.classList.add('visible');
+    });
+    activePopover = popover;
+  }
+
+  terms.forEach(function (term) {
+    if (isTouch) {
+      term.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (activePopover && activePopover.parentElement === term) {
+          dismiss();
+        } else {
+          show(term);
+        }
+      });
+    } else {
+      var hideTimeout;
+      term.addEventListener('mouseenter', function () {
+        clearTimeout(hideTimeout);
+        show(term);
+      });
+      term.addEventListener('mouseleave', function () {
+        hideTimeout = setTimeout(dismiss, 120);
+      });
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (activePopover && !e.target.closest('.sourced-term')) {
+      dismiss();
+    }
+  });
+})();
+
 /* Image Lightbox */
 (function () {
   var imgs = document.querySelectorAll('.pub-figure img, .pub-hero-image img');

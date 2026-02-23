@@ -21,7 +21,9 @@
       "WebFetch(domain:docs.learningcommons.org)",
       "WebFetch(domain:github.com)",
       "WebSearch",
-      "WebFetch(domain:principled-situation-4c0.notion.site)"
+      "WebFetch(domain:principled-situation-4c0.notion.site)",
+      "Bash(wc:*)",
+      "Bash(grep:*)"
     ]
   }
 }
