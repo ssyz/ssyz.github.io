@@ -205,6 +205,24 @@ header {
   color: var(--color-accent);
 }
 
+.stat-number-secondary {
+  font-size: 1.8rem;
+}
+
+.headline-stat-secondary p {
+  font-size: 1.2rem;
+}
+
+.stat-source a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.stat-source a:hover {
+  opacity: 0.8;
+}
+
 .stat-source {
   display: inline-block;
   margin-top: 8px;
@@ -857,6 +875,14 @@ header, main, footer {
 
   .stat-number {
     font-size: 1.8rem;
+  }
+
+  .stat-number-secondary {
+    font-size: 1.5rem;
+  }
+
+  .headline-stat-secondary p {
+    font-size: 1.05rem;
   }
 
   .block {
