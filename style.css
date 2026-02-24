@@ -1016,6 +1016,8 @@ main, footer {
     width: 100%;
     order: 3;
     padding: 8px 0;
+    gap: 0;
+    align-items: stretch;
   }
 
   .nav-links.open {
@@ -1032,10 +1034,13 @@ main, footer {
   .nav-dropdown {
     position: static;
     width: 100%;
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .nav-labs-trigger {
+  .nav-links .nav-labs-trigger {
     display: flex;
+    align-items: center;
     width: 100%;
     padding: 12px 0;
     font-size: 1rem;
