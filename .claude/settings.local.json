@@ -23,7 +23,13 @@
       "WebSearch",
       "WebFetch(domain:principled-situation-4c0.notion.site)",
       "Bash(wc:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(git:*)",
+      "WebFetch(domain:k12-ai-infrastructure.org)",
+      "Bash(head:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:learningcommons.org)",
+      "Bash(python3:*)"
     ]
   }
 }

@@ -74,6 +74,7 @@
 
   refs.forEach(function (ref) {
     ref.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
       e.preventDefault();
       e.stopPropagation();
       dismiss();

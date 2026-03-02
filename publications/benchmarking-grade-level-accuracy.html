@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFD51KX8B6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WFD51KX8B6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benchmarking Grade Level Accuracy Across AI Teacher Tools – OurDojo</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../publication.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="reading-progress">
+    <div class="reading-progress-fill"></div>
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">OurDojo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/research" class="nav-link">Research</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-labs-trigger" aria-expanded="false" aria-haspopup="true">
+            <svg class="labs-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 3h6M10 3v6.5L4.5 19.5a1 1 0 0 0 .87 1.5h13.26a1 1 0 0 0 .87-1.5L14 9.5V3"/>
+              <path d="M8.5 14h7"/>
+            </svg>
+            Labs
+            <svg class="labs-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="/business" class="nav-dropdown-item" role="menuitem">OurDojo for Business</a>
+            <a href="https://talk.ourdojo.org/" target="_blank" rel="noopener noreferrer"
+               class="nav-dropdown-item" role="menuitem">SmallTalk</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="publication">
+      <div class="pub-header">
+        <p class="pub-category">Benchmark Note #1</p>
+        <h1 class="pub-title">Benchmarking Grade Level Accuracy Across AI Teacher Tools</h1>
+        <p class="pub-date">March 2026</p>
+      </div>
+
+      <figure class="pub-hero-image" style="max-width: 800px;">
+        <img src="../images/hero image - abstract.png" alt="Abstract geometric illustration with overlapping shapes and a bar chart trend line" />
+      </figure>
+
+      <div class="pub-body">
+        <nav class="pub-toc">
+          <p class="pub-toc-heading">Contents</p>
+          <ul class="pub-toc-list">
+            <li><a href="#why-this-follow-up-exists" class="pub-toc-link">Motivation</a></li>
+            <li><a href="#methodology" class="pub-toc-link">Methodology</a></li>
+            <li><a href="#results" class="pub-toc-link">Twee Evaluation</a></li>
+            <li><a href="#comparison" class="pub-toc-link">Comparison</a></li>
+            <li><a href="#interpretation" class="pub-toc-link">Interpretation</a></li>
+            <li><a href="#benchmark-dataset" class="pub-toc-link">OurDojo Benchmark Dataset</a></li>
+          </ul>
+        </nav>
+
+        <section id="why-this-follow-up-exists">
+          <h2>Why This Follow-Up Exists</h2>
+          <p>OurDojo's prior evaluation of MagicSchool AI identified substantial grade-level misalignment in AI-generated instructional text. That evaluation raised an important question: Are grade-level issues a general limitation of AI-generated educational content, or are they specific to individual tools?</p>
+          <p>This benchmark note applies the <em>same evaluation framework</em> used in the MagicSchool evaluation to another popular tool, <a href="https://twee.com/" target="_blank" rel="noopener noreferrer">Twee</a>, to understand how performance varies across AI teacher content generators.</p>
+          <p>The goal is not to rank tools, but to demonstrate how independent evaluation can reveal meaningful differences in instructional quality.</p>
+        </section>
+
+        <section id="methodology">
+          <h2>Methodology</h2>
+          <h3>OurDojo GLA Framework Attribution Statement</h3>
+          <p>This evaluation applies the open-source Grade Level Appropriateness Evaluator developed by Learning Commons<span class="footnote-ref" data-footnote="1"><sup>1</sup></span>; OurDojo independently designed the study protocol, operationalized the framework at scale, and conducted the cross-tool benchmarking analysis presented here.</p>
+          <h3>Twee Text Generation</h3>
+          <p>To ensure comparability, this evaluation uses the same methodology as the MagicSchool evaluation:</p>
+          <ul>
+            <li>Evaluation Framework: OurDojo Grade Level Appropriateness Evaluator</li>
+            <li>Grade Band Target: 2&ndash;3 (3rd Grade)</li>
+            <li>Text Length: 1 paragraph</li>
+            <li>Content Domains: Science and Social Studies</li>
+            <li>Sample Size: 100 passages</li>
+            <li>Prompt: Create an informational reading passage for [SUBJECT] in [CATEGORY] about the following topic: [DESCRIPTION]. The passage should be appropriate for independent reading.</li>
+          </ul>
+          <figure class="pub-figure">
+            <img src="../images/twee - create text - annotated.png" alt="Twee Tool Inputs" />
+          </figure>
+          <p>We manually collected 100 samples across different topics and logged the results in CSV format. All passages were independently evaluated and categorized into grade bands.</p>
+        </section>
+
+        <section id="results">
+          <div class="key-findings-box">
+            <h2>Twee Evaluation</h2>
+            <div class="key-finding">
+              <p><strong>Nearly 9 in 10 passages land at the right reading level</strong><br />
+                89% of passages hit the target 2–3 grade band, and 93% landed in either the target or adjacent acceptable band. Only 11 passages missed the target.</p>
+            </div>
+            <div class="key-finding">
+              <p><strong>When it misses, the model skews too easy</strong><br />
+                10 out of 11 failures were rated Too Easy (K–1 band). Only 1 was rated Too Hard (4–5 band). The generator consistently undershoots grade level rather than overshooting.</p>
+            </div>
+            <div class="key-finding">
+              <p><strong>Performance is consistent across subjects</strong><br />
+                Both evaluated subjects performed similarly:</p>
+              <table class="key-finding-table">
+                <thead>
+                  <tr><th>Subject</th><th>Pass Rate</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Science</td><td>90%</td></tr>
+                  <tr><td>Social Studies</td><td>88%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <section id="examples">
+              <h3>Examples</h3>
+              <p>To illustrate what inappropriate for the target grade level looks like in practice, below are two passages Twee generated for 3rd graders that were evaluated at the K to 1st grade reading level.</p>
+
+              <div class="example-card">
+                <div class="example-card-header">
+                  <span class="example-topic">How weather affects daily life</span>
+                  <div class="example-grades">
+                    <span class="grade-expected">Expected: 3rd Grade</span>
+                    <span class="grade-arrow">&rarr;</span>
+                    <span class="grade-actual">Actual: K&ndash;1st Grade</span>
+                  </div>
+                </div>
+                <blockquote class="example-text">Weather is what happens outside every day. Sometimes it’s sunny, and we play outside. On rainy days, we need umbrellas and raincoats. In winter, it can be cold, so we wear jackets and hats. Weather changes what we wear and what we do. It is very important for our daily life!</blockquote>
+                <div class="example-synthesis">The combination of a very low word count, consistently low qualitative complexity, and reliance on universal background knowledge <strong>firmly places this text in the earliest grade band</strong>. The simple vocabulary and sentence structure are designed for emergent readers. The text is therefore most appropriate for independent reading in the K&ndash;1 band.</div>
+                <details class="example-reasoning">
+                  <summary>Full evaluator analysis</summary>
+                  <div class="example-reasoning-body">
+                    <p><strong>Quantitative Analysis:</strong> The word count is 42 words. This is significantly below the lowest provided band (200&ndash;800 words for grades 2&ndash;3), which strongly suggests a grade level below 2nd grade. The Flesch-Kincaid Grade Level is calculated at 7.36. This score is an anomaly, which often occurs with very short texts where a few common, multi-syllable words (like 'happens', 'umbrellas', 'important') disproportionately inflate the result. Given the extreme brevity of the text, the word count is a more reliable quantitative signal than the FKGL score.</p>
+                    <p><strong>Qualitative Analysis:</strong> The text ranks as 'Slightly Complex' across all rubric categories. The TEXT STRUCTURE is simple and sequential, with clear connections between ideas. The LANGUAGE FEATURES are explicit and literal, using familiar, conversational vocabulary and simple sentence structures. The PURPOSE is explicitly stated and concrete. The KNOWLEDGE DEMANDS rely solely on everyday, practical knowledge of weather.</p>
+                    <p><strong>Background Knowledge:</strong> Students in Kindergarten and 1st grade have direct personal experience with sunny, rainy, and cold weather. The concepts of wearing appropriate clothing and changing activities based on the weather are fundamental to their daily lives and require no specialized background knowledge.</p>
+                    <p><strong>Synthesis:</strong> Disregarding the misleading Flesch-Kincaid score, the combination of a very low word count, consistently low qualitative complexity, and reliance on universal background knowledge firmly places this text in the earliest grade band. The simple vocabulary and sentence structure are designed for emergent readers. The text is therefore most appropriate for independent reading in the K&ndash;1 band.</p>
+                  </div>
+                </details>
+              </div>
+
+              <div class="example-card">
+                <div class="example-card-header">
+                  <span class="example-topic">Community helpers and their roles</span>
+                  <div class="example-grades">
+                    <span class="grade-expected">Expected: 3rd Grade</span>
+                    <span class="grade-arrow">&rarr;</span>
+                    <span class="grade-actual">Actual: K&ndash;1st Grade</span>
+                  </div>
+                </div>
+                <blockquote class="example-text">Community helpers are people who help us in our daily lives. A firefighter puts out fires and keeps us safe. A doctor helps us when we are sick. Teachers help us learn new things at school. Police officers keep our community safe. These helpers make our community a better place.</blockquote>
+                <div class="example-synthesis">The qualitative analysis <strong>overwhelmingly places the text at the lowest complexity level</strong>. This, combined with the alignment to the K&ndash;1 curriculum and the very low word count, provides strong evidence for a K&ndash;1 grade level.</div>
+                <details class="example-reasoning">
+                  <summary>Full evaluator analysis</summary>
+                  <div class="example-reasoning-body">
+                    <p><strong>Quantitative Analysis:</strong> - Word Count: 49 words. This count is significantly below the lowest provided band (200&ndash;800 words for grades 2&ndash;3), which strongly suggests a K&ndash;1 placement. - Flesch-Kincaid Grade Level: The calculated grade level is approximately 4.7. However, this score is artificially inflated due to the very short passage length and the presence of a few multisyllabic words ('community', 'firefighter', 'officers'). For texts under 100 words, the FKGL formula is often unreliable.</p>
+                    <p><strong>Qualitative Analysis:</strong> - TEXT STRUCTURE: Slightly Complex. The text presents a simple list of ideas with explicit and clear connections. The organization is predictable and sequential. - LANGUAGE FEATURES: Slightly Complex. The language is explicit and literal, using familiar, conversational vocabulary. All sentences are simple declarative statements. - PURPOSE: Slightly Complex. The purpose is explicitly stated in the first and last sentences—to identify community helpers and their roles. It is clear, concrete, and narrowly focused. - KNOWLEDGE DEMANDS: Slightly Complex. The text requires only everyday, practical knowledge about common societal roles, which is a foundational topic in early elementary education.</p>
+                    <p><strong>Background Knowledge:</strong> The topic of 'community helpers' is a cornerstone of the Kindergarten and 1st-grade curriculum. Students at this level are actively learning these concepts, making the text's content perfectly aligned with their educational experience.</p>
+                    <p><strong>Synthesis:</strong> The qualitative analysis overwhelmingly places the text at the lowest complexity level ('Slightly Complex'). This, combined with the alignment to the K&ndash;1 curriculum and the very low word count, provides strong evidence for a K&ndash;1 grade level. The misleading Flesch-Kincaid score should be discounted. The text is ideal for independent reading for a 1st grader and for a shared reading or read-aloud experience for a Kindergartener.</p>
+                  </div>
+                </details>
+              </div>
+          </section>
+        </section>
+
+        <section id="comparison">
+          <h2>Comparison Across Evaluated Tools</h2>
+          <p>The table below illustrates how results differ when applying the same evaluation framework across tools.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>MagicSchool</th>
+                  <th class="highlight-col">Twee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="metric-label">Target Band Accuracy</td>
+                  <td>66%</td>
+                  <td class="highlight-col">89%</td>
+                </tr>
+                <tr>
+                  <td class="metric-label">Failure Direction</td>
+                  <td>Strictly Too Hard</td>
+                  <td class="highlight-col">Mostly Too Easy</td>
+                </tr>
+                <tr>
+                  <td class="metric-label">Primary Risk</td>
+                  <td>Cognitive overload</td>
+                  <td class="highlight-col">Under-challenge</td>
+                </tr>
+                <tr>
+                  <td class="metric-label">Weakest Domain</td>
+                  <td>Science > Life Cycles & Traits (20%)</td>
+                  <td class="highlight-col">Social Studies > Communities (73%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>These differences suggest that grade-level performance is <strong>tool-dependent</strong>, not an inherent limitation of AI systems.</p>
+          <p>It is important to note that AI instructional tools are continuously iterated and improved. These findings reflect performance at a specific point in time and are not intended as criticism of any individual platform. Rather, they illustrate why ongoing, independent monitoring is essential as systems evolve.</p>
+        </section>
+
+        <section id="interpretation">
+          <h2>Interpretation</h2>
+          <p>Across two evaluated tools, performance varied significantly under the same evaluation framework. This reinforces a core premise of the OurDojo approach: AI educational quality is measurable, variable, and improvable. Independent evaluation enables both educators and vendors to understand how AI outputs align with instructional expectations.</p>
+          <h3>Implications for Schools and Districts</h3>
+          <ul>
+            <li>AI tools differ materially in instructional alignment</li>
+            <li>Procurement decisions benefit from independent evaluation evidence</li>
+          </ul>
+          <h3>Implications for Vendors</h3>
+          <ul>
+            <li>Benchmarking can reveal actionable improvement areas</li>
+            <li>Evaluation can serve as a competitive differentiator</li>
+          </ul>
+        </section>
+
+        <section id="benchmark-dataset">
+          <h2>The OurDojo Benchmark Dataset (v0.1)</h2>
+          <p>Each evaluation in this series uses the same framework, the same grade band target, and the same content domains. This consistency benefits our industry by standardizing evaluation and enabling direct comparisons across tools and over time.</p>
+          <p>The dataset currently includes standardized evaluations of:</p>
+          <ul>
+            <li>MagicSchool (2026)</li>
+            <li>Twee (2026)</li>
+          </ul>
+          <p>Future iterations will broaden across grade levels, content domains, and additional AI tools as the dataset grows. Additional benchmark evaluations are forthcoming. If you are a vendor and would like your tool included, reach out at <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>.</p>
+        </section>
+      </div>
+
+      <section class="pub-footnotes">
+        <h2>Notes</h2>
+        <ol>
+          <li id="fn-1">Details on the Learning Commons Grade Level Appropriateness Evaluator, including evaluation criteria and scoring methodology, are available in the initial <a href="magicschool-evaluation.html">MagicSchool evaluation report</a>.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>
+  </footer>
+
+  <script src="../nav.js" defer></script>
+  <script src="../publication.js" defer></script>
+</body>
+</html>
