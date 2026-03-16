@@ -520,6 +520,145 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-accent);
 }
 
+/* ===== EVALUATOR ===== */
+.evaluator-flow {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+}
+.flow-step {
+  position: relative;
+  padding-left: 48px;
+  padding-bottom: 40px;
+}
+.flow-step:last-child {
+  padding-bottom: 0;
+}
+/* vertical connector line */
+.flow-step::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+}
+.flow-step:last-child::before {
+  bottom: auto;
+  height: 28px;
+}
+/* step dot */
+.flow-step::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 3px solid var(--color-accent);
+  z-index: 1;
+}
+.flow-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+.evaluator-card {
+  padding: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+.evaluator-headshot {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+}
+.evaluator-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.evaluator-role {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+.evaluator-bio {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  text-align: left;
+}
+.methodology-card {
+  text-align: left;
+  padding: 32px 40px;
+}
+.evaluator-methodology {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+.panel-card {
+  padding: 40px;
+}
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+.panel-member {
+  text-align: center;
+}
+.panel-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+.panel-avatar svg {
+  width: 40px;
+  height: 40px;
+}
+.panel-avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  margin: 0 auto 12px;
+}
+.panel-member-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+.panel-member-role {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
 /* ===== PRICING ===== */
 .pricing-card {
   max-width: 560px;
@@ -914,6 +1053,11 @@ body.modal-open {
   .model-logo { font-size: 18px; }
 
   .structure-grid { grid-template-columns: 1fr; }
+
+  .flow-step { padding-left: 36px; padding-bottom: 28px; }
+  .evaluator-card { padding: 28px 24px; }
+  .methodology-card { padding: 24px; }
+  .panel-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
   .pricing-card { padding: 40px 28px; }
   .pricing-amount { font-size: 48px; }
