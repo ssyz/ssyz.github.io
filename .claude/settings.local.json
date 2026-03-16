@@ -29,7 +29,9 @@
       "Bash(head:*)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:learningcommons.org)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(cp:*)"
     ]
   }
 }
