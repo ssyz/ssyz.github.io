@@ -156,6 +156,7 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-white);
   letter-spacing: -0.02em;
 }
+.wordmark-short { display: none; }
 .wordmark-logo {
   height: 32px;
   width: auto;
@@ -195,10 +196,30 @@ p:last-child { margin-bottom: 0; }
 
 /* ===== HERO ===== */
 .hero {
+  position: relative;
   padding: 160px 0 var(--section-pad);
   text-align: center;
+  overflow: hidden;
+  background: var(--color-primary);
+  color: var(--color-white);
 }
-.hero .container { max-width: 820px; }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: url('images/hero-image.png') center/cover no-repeat;
+  filter: blur(8px);
+  opacity: 0.4;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.55);
+  z-index: 0;
+}
+.hero .container { max-width: 820px; position: relative; z-index: 1; }
 
 .eyebrow {
   display: inline-block;
@@ -1020,6 +1041,9 @@ body.modal-open {
   .modal { padding: 24px; max-height: calc(100vh - 24px); }
   .modal-header h2 { font-size: 22px; }
   .form-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .wordmark-full { display: none; }
+  .wordmark-short { display: inline; }
 
   .nav-links { display: none; }
   .header-cta.desktop { display: none; }
