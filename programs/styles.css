@@ -1094,3 +1094,8 @@ body.modal-open {
   .benefits-grid-header { padding: 16px; }
   .deadline-banner .date { font-size: 24px; }
 }
+
+/* ===== Apply-only mode (hide page behind modal) ===== */
+body.apply-only > *:not(.modal-backdrop) {
+  display: none;
+}

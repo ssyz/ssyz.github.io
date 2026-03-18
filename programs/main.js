@@ -95,13 +95,27 @@
     });
   });
 
+  // Deep-link: auto-open modal if URL hash is #apply
+  const isApplyOnly = window.location.hash === '#apply';
+  if (isApplyOnly) {
+    document.body.classList.add('apply-only');
+    openModal();
+  }
+
   // Close triggers
-  closeBtn.addEventListener('click', closeModal);
+  function handleClose() {
+    if (isApplyOnly) {
+      window.location.href = 'https://ourdojo.org';
+    } else {
+      closeModal();
+    }
+  }
+  closeBtn.addEventListener('click', handleClose);
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
+    if (e.target === modal) handleClose();
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) handleClose();
   });
 
   // Focus trap
