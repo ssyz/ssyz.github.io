@@ -75,14 +75,14 @@ header {
   color: var(--color-text);
 }
 
-/* Labs Dropdown */
+/* Services Dropdown */
 .nav-dropdown {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.nav-labs-trigger {
+.nav-services-trigger {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -94,15 +94,12 @@ header {
   padding: 0;
 }
 
-.labs-icon, .labs-chevron {
+.services-chevron {
   flex-shrink: 0;
-}
-
-.labs-chevron {
   transition: transform 0.2s ease;
 }
 
-.nav-labs-trigger[aria-expanded="true"] .labs-chevron {
+.nav-services-trigger[aria-expanded="true"] .services-chevron {
   transform: rotate(180deg);
 }
 
@@ -1038,7 +1035,7 @@ main, footer {
     align-items: stretch;
   }
 
-  .nav-links .nav-labs-trigger {
+  .nav-links .nav-services-trigger {
     display: flex;
     align-items: center;
     width: 100%;

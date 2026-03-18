@@ -3,7 +3,7 @@
   var nav = document.querySelector('.nav-links');
   if (!btn || !nav) return;
 
-  var trigger = nav.querySelector('.nav-labs-trigger');
+  var trigger = nav.querySelector('.nav-services-trigger');
   var panel = nav.querySelector('.nav-dropdown-panel');
   var dropdown = nav.querySelector('.nav-dropdown');
   var mobile = window.matchMedia('(max-width: 768px)');

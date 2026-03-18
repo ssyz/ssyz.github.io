@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurDojo K-12 GenAI Evaluation</title>
+  <meta name="description" content="OurDojo K-12 GenAI Evaluation — independent AI content quality evaluation for software vendors and school districts.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFD51KX8B6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WFD51KX8B6');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../../images/ourdojo-2-nb.png">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    :root {
+      --color-accent: #d4a835;
+      --color-accent-light: rgba(212, 168, 53, 0.12);
+      --color-text: #1c1a14;
+      --color-text-muted: #7a7264;
+      --color-bg: #faf8f0;
+      --color-bg-alt: #f5f0e4;
+      --color-border: #d8d2c2;
+      --color-white: #ffffff;
+    }
+
+    .chooser {
+      text-align: center;
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .chooser-logo {
+      height: 48px;
+      width: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .chooser h1 {
+      font-family: 'Source Serif Pro', 'Georgia', 'Times New Roman', serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .chooser-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      background: var(--color-white);
+      border: 2px solid var(--color-border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      border-color: var(--color-accent);
+      box-shadow: 0 4px 16px rgba(212, 168, 53, 0.18);
+      outline: none;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+    }
+
+    .card-label {
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    @media screen and (max-width: 520px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .chooser h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">OurDojo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/research" class="nav-link">Research</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-services-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg class="services-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="/programs/k12-genai-eval/vendors" class="nav-dropdown-item" role="menuitem">For Software Vendors</a>
+            <a href="/programs/k12-genai-eval/districts" class="nav-dropdown-item" role="menuitem">For Schools and Districts</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+<div class="chooser">
+  <img src="../../images/ourdojo-2-nb.png" alt="OurDojo" class="chooser-logo">
+  <h1>K-12 GenAI Evaluation</h1>
+  <p class="chooser-subtitle">Select your role to see how we can help.</p>
+
+  <div class="cards">
+    <a href="vendors" class="card">
+      <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <path d="M8 21h8"/>
+        <path d="M12 17v4"/>
+        <path d="M7 8h4"/>
+        <path d="M7 11h6"/>
+      </svg>
+      <span class="card-label">I'm a Software Vendor</span>
+    </a>
+    <a href="districts" class="card">
+      <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 21h18"/>
+        <path d="M5 21V7l7-4 7 4v14"/>
+        <path d="M9 21v-4h6v4"/>
+        <path d="M9 10h1"/>
+        <path d="M14 10h1"/>
+        <path d="M9 14h1"/>
+        <path d="M14 14h1"/>
+      </svg>
+      <span class="card-label">I'm a School or District</span>
+    </a>
+  </div>
+</div>
+  </main>
+
+  <footer>
+    <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>
+  </footer>
+
+<script src="../../nav.js" defer></script>
+</body>
+</html>

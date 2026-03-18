@@ -1,8 +1,11 @@
-# OurDojo K-12 AI Evaluation Learning Sprint
+# OurDojo K-12 AI Evaluation Report
 
 ## The fastest, most affordable way to get an independent AI content quality evaluation in K-12
 
 1,000 samples · 1 evaluator · $1,000–$1,500 · Ready in 2 weeks
+
+## Who This is For
+Built for product teams selling into districts, schools, and administrators who ask hard questions about quality. If you're making claims about learning outcomes, grade-level alignment, or AI accuracy — and you don't yet have independent data to back them up — this is for you.
 
 ## How It Works
 

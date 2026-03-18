@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OurDojo K-12 AI Evaluation Learning Sprint</title>
-  <meta name="description" content="Independent AI content quality evaluation in 2 weeks. 1,000 samples, $1,000–$1,500. OurDojo K-12 AI Evaluation Learning Sprint.">
+  <title>OurDojo K-12 GenAI Evaluation Report — For Software Vendors</title>
+  <meta name="description" content="Independent AI content quality evaluation in 2 weeks. 1,000 samples, $1,000–$1,500. OurDojo K-12 GenAI Evaluation Report.">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFD51KX8B6"></script>
   <script>
@@ -310,9 +310,7 @@
 
     /* ===== Bottom two-col: Team + CTA ===== */
     .bottom-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      display: block;
     }
 
     .team-lead {
@@ -406,6 +404,28 @@
       color: var(--color-text-muted);
     }
 
+    /* ===== Who This is For ===== */
+    .audience-section {
+      margin-bottom: 16px;
+    }
+
+    .audience-section h2 {
+      font-size: 0.93rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid var(--color-accent);
+    }
+
+    .audience-section p {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--color-text-muted);
+    }
+
     /* ===== Print overrides ===== */
     @media print {
       body {
@@ -476,8 +496,8 @@
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="header-left">
-      <img src="../images/aae-logo.png" alt="OurDojo" class="header-logo">
-      <span class="header-title">OurDojo K-12 AI Evaluation Learning Sprint</span>
+      <img src="../../images/ourdojo-2-nb.png" alt="OurDojo" class="header-logo">
+      <span class="header-title">OurDojo K-12 GenAI Evaluation Report</span>
     </div>
     <span class="header-url">ourdojo.org</span>
   </header>
@@ -486,6 +506,12 @@
   <section class="hero">
     <h1>The fastest, most affordable way to get an<br>independent AI content quality evaluation in K-12</h1>
     <p class="stats">1,000 samples &middot; 1 evaluator &middot; $1,000&ndash;$1,500 &middot; Ready in 2 weeks</p>
+  </section>
+
+  <!-- ===== WHO THIS IS FOR ===== -->
+  <section class="audience-section">
+    <h2>Who This is For</h2>
+    <p>Built for product teams selling into districts, schools, and administrators who ask hard questions about quality. If you&rsquo;re making claims about learning outcomes, grade-level alignment, or AI accuracy &mdash; and you don&rsquo;t yet have independent data to back them up &mdash; this is for you.</p>
   </section>
 
   <!-- ===== HOW IT WORKS + WHAT YOU GET ===== -->
@@ -497,7 +523,7 @@
       </div>
       <div class="timeline-step" data-step="2">
         <span class="step-label">1,000-Sample Evaluation</span>
-        <span class="step-detail">AI content evaluated against Learning Commons frameworks</span>
+        <span class="step-detail">AI content evaluated against research-verified frameworks</span>
       </div>
       <div class="timeline-step" data-step="3">
         <span class="step-label">Deliverables</span>
@@ -566,20 +592,9 @@
       <h2>Your Team</h2>
       <div class="team-lead">
         <div class="team-lead-name">Jay Syz <span class="team-lead-role">&mdash; Founder &amp; Lead Evaluator</span></div>
-        <p class="team-lead-bio">2 years implementing applied AI evaluations at venture-backed AI companies. Engineering foundations from Google. Built OurDojo because K-12 was flooded with claims and empty on independent evidence.</p>
+        <p class="team-lead-bio">2 years implementing applied AI evaluations at venture-backed AI companies. Engineering foundations from Google. Built OurDojo because
+          K-12 was flooded with claims and empty on independent evidence. Supported by a panel of experts in Data Science, Engineering, and K-12 Education.</p>
       </div>
-      <div class="panel-label">Expert Advisory Panel</div>
-      <ul class="panel-list">
-        <li><span class="name">Krishna Rao</span> &mdash; Data Scientist</li>
-        <li><span class="name">Alex Shevtsov</span> &mdash; Staff Software Engineer</li>
-        <li><span class="name">Tracy Hong</span> &mdash; K-12 Teacher</li>
-        <li><span class="name">Jing Loo</span> &mdash; K-12 Teacher</li>
-      </ul>
-    </div>
-    <div class="cta-block">
-      <h2>Contact Us</h2>
-      <p class="cta-email">hello@ourdojo.org</p>
-      <p class="cta-tagline">We read every email.</p>
     </div>
   </div>
 
