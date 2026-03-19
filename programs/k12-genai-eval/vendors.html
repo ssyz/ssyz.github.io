@@ -63,7 +63,7 @@
       background: var(--color-white);
       box-shadow: 0 2px 24px rgba(0,0,0,0.12);
       padding: 0.4in 0.5in;
-      overflow: hidden;
+      overflow: visible;
     }
 
     /* ===== Header bar ===== */
@@ -404,6 +404,49 @@
       color: var(--color-text-muted);
     }
 
+    /* ===== Tooltip ===== */
+    .tooltip-trigger {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+      cursor: help;
+      position: relative;
+    }
+
+    .tooltip-trigger .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 0;
+      background: var(--color-text);
+      color: var(--color-white);
+      font-size: 0.82rem;
+      font-weight: 400;
+      line-height: 1.4;
+      padding: 8px 12px;
+      border-radius: 6px;
+      width: 280px;
+      text-align: left;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+      z-index: 10;
+    }
+
+    .tooltip-trigger .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 20px;
+      border: 5px solid transparent;
+      border-bottom-color: var(--color-text);
+    }
+
+    .tooltip-trigger:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
     /* ===== Who This is For ===== */
     .audience-section {
       margin-bottom: 16px;
@@ -505,7 +548,7 @@
   <!-- ===== HERO ===== -->
   <section class="hero">
     <h1>The fastest, most affordable way to get an<br>independent AI content quality evaluation in K-12</h1>
-    <p class="stats">1,000 samples &middot; 1 evaluator &middot; $1,000&ndash;$1,500 &middot; Ready in 2 weeks</p>
+    <p class="stats">1,000 samples &middot; $1,000&ndash;$1,500 (Pilot Pricing) &middot; Ready in 2 weeks</p>
   </section>
 
   <!-- ===== WHO THIS IS FOR ===== -->
@@ -519,19 +562,19 @@
     <div class="timeline">
       <div class="timeline-step" data-step="1">
         <span class="step-label">Scoping Call</span>
-        <span class="step-detail">30-min meeting to agree on evaluator, sample method, grade levels</span>
+        <span class="step-detail">30-min meeting to agree on evaluation dimensions and sampling method</span>
       </div>
       <div class="timeline-step" data-step="2">
         <span class="step-label">1,000-Sample Evaluation</span>
-        <span class="step-detail">AI content evaluated against research-verified frameworks</span>
+        <span class="step-detail">AI content evaluated against Student Achievement Partners, CAST, and Achievement Network (ANet) <span class="tooltip-trigger">established frameworks<span class="tooltip">OurDojo designs the evaluation protocol, sampling approach, and business analysis, and uses open-source evaluators aligned to established instructional frameworks to assess outputs at scale.</span></span></span>
       </div>
       <div class="timeline-step" data-step="3">
         <span class="step-label">Deliverables</span>
-        <span class="step-detail">Report, raw data, failure heatmap within 2 weeks</span>
+        <span class="step-detail">Report with diagnostic insights, raw data in CSV format, failure mode heatmap</span>
       </div>
       <div class="timeline-step" data-step="4">
         <span class="step-label">Findings Walkthrough</span>
-        <span class="step-detail">1-hour meeting to review results and discuss next steps</span>
+        <span class="step-detail">1-hour meeting to review results and discuss how to leverage them for procurement, marketing, and product development</span>
       </div>
     </div>
   </section>
@@ -565,11 +608,11 @@
           <td>12&ndash;36 months</td>
         </tr>
         <tr>
-          <td>Evaluates AI?</td>
-          <td class="col-ours">Yes (89% acc.)</td>
-          <td>No (checklist)</td>
-          <td>No (usage data)</td>
-          <td>No (RCT)</td>
+          <td>Evidence Type</td>
+          <td class="col-ours">Content quality</td>
+          <td>Rubric-based review</td>
+          <td>Usage data</td>
+          <td>Efficacy / RCTs</td>
         </tr>
       </tbody>
     </table>
@@ -577,9 +620,9 @@
 
   <!-- ===== WHY THIS WORKS ===== -->
   <section class="why-section">
-    <h2>Why This Works</h2>
+    <h2>Why Teams Use This</h2>
     <ul class="why-grid">
-      <li><strong>Proven. </strong>+17 pt improvement in accuracy identified in MagicSchool case study</li>
+      <li><strong>Proven. </strong>Used with MagicSchool to drive +17pp improvement in science text accuracy</li>
       <li><strong>Fast. </strong>Results in 2 weeks, not 3&ndash;36 months like alternative options</li>
       <li><strong>Evaluates real AI output. </strong>Measures actual content quality at scale, not checklists</li>
       <li><strong>Actionable data. </strong>CSV + heatmap + diagnostics = engineering team can start fixing immediately</li>
@@ -592,8 +635,8 @@
       <h2>Your Team</h2>
       <div class="team-lead">
         <div class="team-lead-name">Jay Syz <span class="team-lead-role">&mdash; Founder &amp; Lead Evaluator</span></div>
-        <p class="team-lead-bio">2 years implementing applied AI evaluations at venture-backed AI companies. Engineering foundations from Google. Built OurDojo because
-          K-12 was flooded with claims and empty on independent evidence. Supported by a panel of experts in Data Science, Engineering, and K-12 Education.</p>
+        <p class="team-lead-bio">2+ years implementing AI evaluations at venture-backed AI companies. Engineering foundations from Google. Built OurDojo because
+          K-12 AI adoption is moving faster than the availability of independent evidence. Supported by an <span class="tooltip-trigger">expert validation network<span class="tooltip">Includes a staff engineer (14 YoE), a data scientist (5 YoE), a veteran language teacher (22 YoE), and a veteran math teacher (20 YoE).</span></span> of four specialists across data science, engineering, and K–12 education.</p>
       </div>
     </div>
   </div>
