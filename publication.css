@@ -83,7 +83,7 @@
 /* Hero Image — breaks out of parent container */
 .pub-hero-image {
   width: 100vw;
-  max-width: 1100px;
+  max-width: 800px;
   margin-left: 50%;
   transform: translateX(-50%);
   margin-bottom: 40px;
@@ -124,20 +124,37 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  counter-reset: toc;
 }
 
 .pub-toc-list li {
-  margin-bottom: 4px;
+  counter-increment: toc;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pub-toc-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .pub-toc-list li.toc-sub {
   padding-left: 16px;
 }
 
+.pub-toc-link::before {
+  content: counter(toc) ".";
+  display: inline-block;
+  width: 24px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-border);
+}
+
 .pub-toc-link {
   font-size: 0.9rem;
   color: var(--color-text-muted);
-  text-decoration: none;
+  text-decoration: none !important;
   transition: color 0.2s ease;
 }
 
@@ -319,7 +336,8 @@
 .comparison-table-wrap {
   border: 1px solid var(--color-border);
   border-radius: 10px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin: 24px 0;
 }
 
@@ -333,12 +351,12 @@
 }
 
 .comparison-table th {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--color-text-muted);
-  padding: 14px 20px;
+  padding: 12px 14px;
   text-align: left;
   border-bottom: 1px solid var(--color-border);
 }
@@ -348,14 +366,34 @@
 }
 
 .comparison-table td {
-  padding: 14px 20px;
-  font-size: 0.95rem;
+  padding: 12px 14px;
+  font-size: 0.88rem;
   line-height: 1.5;
   border-bottom: 1px solid var(--color-border);
 }
 
 .comparison-table tbody tr:last-child td {
   border-bottom: none;
+}
+
+/* Zebra striping */
+.comparison-table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Row hover */
+.comparison-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.comparison-table tbody tr:hover {
+  background: rgba(217, 119, 87, 0.06);
+}
+
+/* First column — row label styling */
+.comparison-table td:first-child {
+  font-weight: 500;
+  color: var(--color-text-muted);
 }
 
 .comparison-table .metric-label {
@@ -369,15 +407,207 @@
   font-weight: 500;
 }
 
+/* Bold values inside table cells */
+.comparison-table td strong {
+  color: var(--color-text);
+}
+
 @media (max-width: 480px) {
   .comparison-table th,
   .comparison-table td {
-    padding: 10px 12px;
-    font-size: 0.85rem;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .comparison-table th {
+    font-size: 0.68rem;
   }
 
   .comparison-table .metric-label {
     white-space: normal;
+  }
+}
+
+/* Evaluation Matrix Grid */
+.eval-matrix {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto auto 1fr;
+  margin: 28px 0;
+}
+
+.eval-matrix-spacer {
+  /* empty cells in top-left of grid */
+}
+
+/* "Judge" label row — spans the 3rd column */
+.eval-matrix-axis-top {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 6px;
+  padding-bottom: 6px;
+}
+
+.eval-matrix-axis-top-spacer {
+  /* matches the row-header width */
+}
+
+.eval-matrix-axis-top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.eval-matrix-axis-text {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.eval-matrix-bracket-h {
+  width: 100%;
+  height: 12px;
+  display: block;
+}
+
+/* Column logo headers row — lives inside the 3rd column */
+.eval-matrix-col-headers {
+  display: grid;
+  grid-template-columns: 100px repeat(3, 1fr);
+  gap: 6px;
+  padding-bottom: 6px;
+}
+
+.eval-matrix-col-headers-spacer {
+  /* matches the row-header width so logos align with data columns */
+}
+
+.eval-matrix-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+}
+
+/* "Generator" vertical label — 1st column of body row */
+.eval-matrix-axis-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 4px;
+}
+
+.eval-matrix-axis-left .eval-matrix-axis-text {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+/* Vertical bracket — 2nd column of body row */
+.eval-matrix-bracket-v-wrap {
+  display: flex;
+  align-items: stretch;
+  padding-right: 6px;
+}
+
+.eval-matrix-bracket-v {
+  width: 12px;
+  height: 100%;
+  display: block;
+}
+
+/* 3x3 body — 3rd column of body row */
+.eval-matrix-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eval-matrix-row {
+  display: grid;
+  grid-template-columns: 100px repeat(3, 1fr);
+  gap: 6px;
+}
+
+.eval-matrix-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+}
+
+.eval-matrix-logo {
+  max-height: 18px;
+  max-width: 80px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.eval-matrix-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: background 0.15s ease;
+}
+
+.eval-matrix-cell:hover {
+  background: rgba(217, 119, 87, 0.08);
+}
+
+@media (max-width: 480px) {
+  .eval-matrix-row {
+    grid-template-columns: 72px repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .eval-matrix-col-headers {
+    grid-template-columns: 72px repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .eval-matrix-axis-top {
+    grid-template-columns: 72px 1fr;
+    gap: 4px;
+  }
+
+  .eval-matrix-body {
+    gap: 4px;
+  }
+
+  .eval-matrix-logo {
+    max-height: 14px;
+    max-width: 60px;
+  }
+
+  .eval-matrix-col-header,
+  .eval-matrix-row-header {
+    padding: 8px 4px;
+  }
+
+  .eval-matrix-cell {
+    padding: 12px 4px;
+    font-size: 0.72rem;
+  }
+
+  .eval-matrix-axis-text {
+    font-size: 0.6rem;
+  }
+
+  .eval-matrix-bracket-v {
+    width: 10px;
   }
 }
 

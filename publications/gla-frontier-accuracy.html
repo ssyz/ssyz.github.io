@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFD51KX8B6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WFD51KX8B6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontier Model Performance on Grade-Level Accuracy – OurDojo</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../publication.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="reading-progress">
+    <div class="reading-progress-fill"></div>
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">OurDojo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/research" class="nav-link">Research</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-services-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg class="services-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="/programs/k12-genai-eval/vendors" class="nav-dropdown-item" role="menuitem">For Software Vendors</a>
+            <a href="/programs/k12-genai-eval/districts" class="nav-dropdown-item" role="menuitem">For Schools and Districts</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="publication">
+      <div class="pub-header">
+        <p class="pub-category">Benchmark Note #2</p>
+        <h1 class="pub-title">Frontier Model Performance on Grade-Level Accuracy</h1>
+        <p class="pub-date">March 2026</p>
+        <p class="pub-eval-framework">Evaluation Framework: OurDojo Grade Level Appropriateness Evaluator</p>
+      </div>
+
+      <figure class="pub-hero-image">
+        <img src="../images/hero-image-frontier-acc.png" alt="Frontier Model Performance on Grade-Level Accuracy" />
+      </figure>
+
+      <div class="pub-body">
+        <nav class="pub-toc">
+          <p class="pub-toc-heading">Contents</p>
+          <ol class="pub-toc-list">
+            <li><a href="#context" class="pub-toc-link">Context</a></li>
+            <li><a href="#methodology" class="pub-toc-link">Methodology</a></li>
+            <li><a href="#generator-performance" class="pub-toc-link">Generator Performance</a></li>
+            <li><a href="#judge-behavior" class="pub-toc-link">Judge Behavior and Agreement</a></li>
+            <li><a href="#self-evaluation-bias" class="pub-toc-link">Self-Evaluation Bias</a></li>
+            <li><a href="#subject-category-analysis" class="pub-toc-link">Subject and Category Analysis</a></li>
+            <li><a href="#discussion" class="pub-toc-link">Discussion</a></li>
+            <li><a href="#limitations" class="pub-toc-link">Limitations</a></li>
+            <li><a href="#data-availability" class="pub-toc-link">Data Availability</a></li>
+            <li><a href="#conclusion" class="pub-toc-link">Conclusion</a></li>
+          </ol>
+        </nav>
+
+        <section id="context">
+          <h2>Context</h2>
+          <p><a href="benchmarking-grade-level-accuracy.html">Benchmark Note #1: Benchmarking Grade Level Accuracy Across AI Teacher Tools</a> evaluated platforms purpose-built for teachers &mdash; MagicSchool and Twee &mdash; while the <a href="magicschool-iterative-evaluation.html">MagicSchool Case Study</a> examined iterative improvement within a single platform. A natural follow-up question is how the underlying frontier models perform without those application wrappers: does the model itself reliably produce grade-appropriate content, or does performance depend heavily on which model is used?</p>
+          <p>This analysis presents 900 evaluations of AI-generated 3rd-grade educational content, spanning 100 unique passages produced by three frontier language models and assessed by three independent AI judges. The results reveal substantial variation in both generation quality and evaluation behavior.</p>
+        </section>
+
+        <section id="methodology">
+          <h2>Methodology</h2>
+          <p>We apply the same evaluation methodology used in <a href="benchmarking-grade-level-accuracy.html">Benchmark Note #1: Benchmarking Grade Level Accuracy Across AI Teacher Tools</a> and the <a href="magicschool-iterative-evaluation.html">MagicSchool Case Study</a>. Specifically, the corpus comprises 100 expository passages targeting a 2nd&ndash;3rd grade reading band. Passages cover two subjects: Science (40 passages across 4 categories) and Social Studies (60 passages across 4 categories) &mdash; reflecting the emphasis typical of elementary curricula.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Dimension</th>
+                  <th>Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Target grade band</td>
+                  <td>2&ndash;3</td>
+                </tr>
+                <tr>
+                  <td>Total passages</td>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <td>Science passages</td>
+                  <td>40 (Ecosystems &amp; Interdependence, Forces &amp; Interactions, Life Cycles &amp; Traits, Weather &amp; Climate)</td>
+                </tr>
+                <tr>
+                  <td>Social Studies passages</td>
+                  <td>60 (Civics &amp; Economics, Communities, Geography, History &amp; Culture)</td>
+                </tr>
+                <tr>
+                  <td>Text type</td>
+                  <td>Expository, single paragraph</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Evaluation Matrix</h3>
+          <p>Each passage was generated independently by Claude 4.6 Opus, Gemini 2.5 Pro, and GPT-5.1, yielding 300 generated texts. Each text was then evaluated by all three models acting as judges, producing a full 3&times;3 matrix of 900 evaluations.</p>
+          <div class="eval-matrix">
+            <!-- Row 1: "Judge" label spanning the three data columns -->
+            <div class="eval-matrix-spacer"></div>
+            <div class="eval-matrix-spacer"></div>
+            <div class="eval-matrix-axis-top">
+              <div class="eval-matrix-axis-top-spacer"></div>
+              <div class="eval-matrix-axis-top-content">
+                <span class="eval-matrix-axis-text">Judge</span>
+                <svg class="eval-matrix-bracket-h" viewBox="0 0 100 12" preserveAspectRatio="none">
+                  <path d="M2 10 L2 4 L50 4 L50 0 L50 4 L98 4 L98 10" fill="none" stroke="var(--color-text-muted)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Row 2: empty + empty + row-header spacer + logo headers -->
+            <div class="eval-matrix-spacer"></div>
+            <div class="eval-matrix-spacer"></div>
+            <div class="eval-matrix-col-headers">
+              <div class="eval-matrix-col-headers-spacer"></div>
+              <div class="eval-matrix-col-header">
+                <img src="../programs/images/anthropic-logo.png" alt="Anthropic" class="eval-matrix-logo" />
+              </div>
+              <div class="eval-matrix-col-header">
+                <img src="../programs/images/gemini-logo.png" alt="Gemini" class="eval-matrix-logo" />
+              </div>
+              <div class="eval-matrix-col-header">
+                <img src="../programs/images/openai-logo.png" alt="OpenAI" class="eval-matrix-logo" />
+              </div>
+            </div>
+
+            <!-- Row 3: "Generator" vertical label + bracket + row logos + 3x3 cells -->
+            <div class="eval-matrix-axis-left">
+              <span class="eval-matrix-axis-text">Generator</span>
+            </div>
+            <div class="eval-matrix-bracket-v-wrap">
+              <svg class="eval-matrix-bracket-v" viewBox="0 0 12 100" preserveAspectRatio="none">
+                <path d="M10 2 L4 2 L4 50 L0 50 L4 50 L4 98 L10 98" fill="none" stroke="var(--color-text-muted)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+              </svg>
+            </div>
+            <div class="eval-matrix-body">
+              <div class="eval-matrix-row">
+                <div class="eval-matrix-row-header">
+                  <img src="../programs/images/anthropic-logo.png" alt="Anthropic" class="eval-matrix-logo" />
+                </div>
+                <div class="eval-matrix-cell">100 evals</div>
+                <div class="eval-matrix-cell">100 evals</div>
+                <div class="eval-matrix-cell">100 evals</div>
+              </div>
+              <div class="eval-matrix-row">
+                <div class="eval-matrix-row-header">
+                  <img src="../programs/images/gemini-logo.png" alt="Gemini" class="eval-matrix-logo" />
+                </div>
+                <div class="eval-matrix-cell">100 evals</div>
+                <div class="eval-matrix-cell">100 evals</div>
+                <div class="eval-matrix-cell">100 evals</div>
+              </div>
+              <div class="eval-matrix-row">
+                <div class="eval-matrix-row-header">
+                  <img src="../programs/images/openai-logo.png" alt="OpenAI" class="eval-matrix-logo" />
+                </div>
+                <div class="eval-matrix-cell">100 evals</div>
+                <div class="eval-matrix-cell">100 evals</div>
+                <div class="eval-matrix-cell">100 evals</div>
+              </div>
+            </div>
+          </div>
+          <p>Judges assessed each passage on multiple dimensions: quantitative readability metrics (Flesch-Kincaid grade level), text structure complexity, language and vocabulary demands, and background knowledge requirements. Each evaluation produced a binary in-target-grade determination alongside detailed qualitative reasoning.</p>
+        </section>
+
+        <section id="generator-performance">
+          <h2>Generator Performance</h2>
+          <p>The most striking finding is the 38-percentage-point gap between the best and worst generator. Gemini 2.5 Pro achieved near-perfect grade-level accuracy at 98.7%, while Claude 4.6 Opus landed at 60.7%, which is a gap large enough to meaningfully affect classroom outcomes.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Generator</th>
+                  <th>Claude Judge</th>
+                  <th>Gemini Judge</th>
+                  <th>GPT-5.1 Judge</th>
+                  <th class="highlight-col">Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Gemini 2.5 Pro</strong></td>
+                  <td>100.0%</td>
+                  <td>100.0%</td>
+                  <td>96.0%</td>
+                  <td class="highlight-col"><strong>98.7%</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>GPT-5.1</strong></td>
+                  <td>81.0%</td>
+                  <td>86.0%</td>
+                  <td>62.0%</td>
+                  <td class="highlight-col"><strong>76.3%</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Claude 4.6 Opus</strong></td>
+                  <td>68.0%</td>
+                  <td>75.0%</td>
+                  <td>39.0%</td>
+                  <td class="highlight-col"><strong>60.7%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Every single failure across all 900 evaluations was categorized as &ldquo;Too Hard&rdquo;. No passage was ever judged too easy. Moreover, all 193 failed passages still fell within the alternative-or-target grade band (K&ndash;3), meaning failures represent content that is above grade level but not wildly so. The challenge is typically elevated vocabulary or complex sentence structure, not fundamentally misaligned content.</p>
+        </section>
+
+        <section id="judge-behavior">
+          <h2>Judge Behavior and Agreement</h2>
+
+          <h3>Judge Severity</h3>
+          <p>Judges varied substantially in how strictly they applied grade-level standards, with a 21.3-percentage-point spread between the most lenient and most strict.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Judge</th>
+                  <th>Pass Rate (across all generators)</th>
+                  <th>Characterization</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gemini 2.5 Pro</td>
+                  <td>87.0% (261/300)</td>
+                  <td>Most lenient</td>
+                </tr>
+                <tr>
+                  <td>Claude 4.6 Opus</td>
+                  <td>83.0% (249/300)</td>
+                  <td>Moderate</td>
+                </tr>
+                <tr>
+                  <td>GPT-5.1</td>
+                  <td>65.7% (197/300)</td>
+                  <td>Strictest</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>GPT-5.1 applied notably higher standards, failing more than a third of all content it reviewed. This severity was consistent across generators: GPT-5.1 gave the lowest pass rate to every generator&rsquo;s content.</p>
+
+          <h3>Judge Agreement</h3>
+          <p>When all three judges evaluated the same content, agreement patterns varied dramatically by generator.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Generator Content</th>
+                  <th>Unanimous Pass</th>
+                  <th>Unanimous Fail</th>
+                  <th>Split Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gemini 2.5 Pro</td>
+                  <td>96%</td>
+                  <td>0%</td>
+                  <td>4%</td>
+                </tr>
+                <tr>
+                  <td>GPT-5.1</td>
+                  <td>58%</td>
+                  <td>8%</td>
+                  <td>34%</td>
+                </tr>
+                <tr>
+                  <td>Claude 4.6 Opus</td>
+                  <td>37%</td>
+                  <td>20%</td>
+                  <td>43%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Gemini&rsquo;s content achieved near-total consensus with 96% of passages approved by all three judges. Claude&rsquo;s content, by contrast, produced a unanimous pass on only 37% of passages, with 43% triggering split decisions where judges disagreed. This suggests that lower-performing generators produce content that sits closer to the grade-level boundary, where reasonable evaluators can disagree.</p>
+        </section>
+
+        <section id="self-evaluation-bias">
+          <h2>Self-Evaluation Bias</h2>
+          <p>A key question for any AI evaluation framework is whether models can reliably judge their own output. The answer is nuanced.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Generator/Self-Judge</th>
+                  <th>Self-Judge Rate</th>
+                  <th>Other-Judge Rate</th>
+                  <th>Delta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Claude 4.6 Opus</td>
+                  <td>68.0%</td>
+                  <td>57.0%</td>
+                  <td>+11.0pp</td>
+                </tr>
+                <tr>
+                  <td>Gemini 2.5 Pro</td>
+                  <td>100.0%</td>
+                  <td>98.0%</td>
+                  <td>+2.0pp</td>
+                </tr>
+                <tr>
+                  <td>GPT-5.1</td>
+                  <td>62.0%</td>
+                  <td>83.5%</td>
+                  <td><strong>&minus;21.5pp</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>GPT-5.1 exhibits the most unexpected pattern: it is dramatically harder on its own content than other judges are, rating itself 21.5 percentage points lower. This anti-self bias is unusual and suggests GPT-5.1 applies a different evaluative lens when it recognizes its own output patterns. Claude shows a mild positive self-bias (+11pp), while Gemini&rsquo;s near-perfect generation rate leaves little room for bias to manifest.</p>
+          <p>These results indicate that self-evaluation bias varies in both magnitude and direction, limiting the reliability of single-model evaluation pipelines.</p>
+        </section>
+
+        <section id="subject-category-analysis">
+          <h2>Subject and Category Analysis</h2>
+
+          <h3>By Subject</h3>
+          <p>Science content proved consistently harder to generate at grade level than Social Studies, regardless of generator.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Claude 4.6 Opus</th>
+                  <th>Gemini 2.5 Pro</th>
+                  <th>GPT-5.1</th>
+                  <th class="highlight-col">Overall</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Science</td>
+                  <td>49.2%</td>
+                  <td>98.3%</td>
+                  <td>65.8%</td>
+                  <td class="highlight-col"><strong>71.1%</strong></td>
+                </tr>
+                <tr>
+                  <td>Social Studies</td>
+                  <td>68.3%</td>
+                  <td>98.9%</td>
+                  <td>83.3%</td>
+                  <td class="highlight-col"><strong>83.5%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The 12.4-percentage-point overall gap between subjects reflects a fundamental challenge: science topics require technical vocabulary (e.g., &ldquo;interdependence,&rdquo; &ldquo;evaporation,&rdquo; &ldquo;friction&rdquo;) that is difficult to simplify without sacrificing accuracy. Social Studies topics more readily admit age-appropriate language.</p>
+
+          <h3>By Category</h3>
+          <p>Performance varied substantially across the eight topic categories.</p>
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Category</th>
+                  <th>Subject</th>
+                  <th>Pass Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Communities</td>
+                  <td>Social Studies</td>
+                  <td>94.1% (127/135)</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Civics &amp; Economics</td>
+                  <td>Social Studies</td>
+                  <td>88.9% (120/135)</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Life Cycles &amp; Traits</td>
+                  <td>Science</td>
+                  <td>80.0% (72/90)</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>History &amp; Culture</td>
+                  <td>Social Studies</td>
+                  <td>77.0% (104/135)</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Weather &amp; Climate</td>
+                  <td>Science</td>
+                  <td>76.7% (69/90)</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Geography</td>
+                  <td>Social Studies</td>
+                  <td>74.1% (100/135)</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Forces &amp; Interactions</td>
+                  <td>Science</td>
+                  <td>64.4% (58/90)</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Ecosystems &amp; Interdependence</td>
+                  <td>Science</td>
+                  <td>63.3% (57/90)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The bottom two categories, Forces &amp; Interactions and Ecosystems &amp; Interdependence, are both science topics where domain-specific terminology is particularly resistant to simplification. Communities, at the top, deals with familiar, concrete concepts that naturally lend themselves to age-appropriate expression.</p>
+        </section>
+
+        <section id="discussion">
+          <h2>Discussion</h2>
+          <p>Four findings emerge from this analysis:</p>
+          <ol>
+            <li><strong>Generator selection is a primary source of variance.</strong> The 38-percentage-point spread across generators represents the single largest source of performance variation in this study. This is consistent with emerging research documenting significant differences in LLMs&rsquo; ability to produce text at target readability levels (<a href="https://arxiv.org/abs/2406.12787" target="_blank" rel="noopener noreferrer">Huang et al., 2024</a>; <a href="https://arxiv.org/abs/2309.12551" target="_blank" rel="noopener noreferrer">Farajidizaji et al., 2023</a>).</li>
+            <li><strong>Judge severity is model-dependent.</strong> The 21-percentage-point spread in judge pass rates underscores that LLM-as-judge evaluations are not interchangeable. This aligns with the foundational work by <a href="https://arxiv.org/abs/2306.05685" target="_blank" rel="noopener noreferrer">Zheng et al. (2023)</a>, which documented position bias, verbosity bias, and self-enhancement bias across judge models. The magnitude of the spread observed here reinforces the case for multi-judge evaluation designs.</li>
+            <li><strong>Self-evaluation introduces systematic bias.</strong> Biases ranging from +11pp to &minus;21.5pp confirm that self-evaluation is unreliable in both directions. <a href="https://arxiv.org/abs/2404.13076" target="_blank" rel="noopener noreferrer">Panickssery et al. (2024)</a> showed that LLMs can distinguish their own outputs from others&rsquo; at non-trivial accuracy and that self-recognition ability correlates linearly with the strength of self-preference bias. <a href="https://arxiv.org/abs/2410.21819" target="_blank" rel="noopener noreferrer">Wataoka et al. (2024)</a> introduced a quantitative metric for self-preference bias, identifying text perplexity as the underlying mechanism &mdash; models prefer text that is more familiar to their own distribution. These findings add to the growing evidence that self-evaluation introduces systematic bias into LLM evaluation pipelines.</li>
+            <li><strong>Domain-specific vocabulary creates a measurable accuracy gap.</strong> The 12.4pp gap between Science and Social Studies pass rates suggests that simplifying domain-specific vocabulary poses a distinct challenge compared to general text. Research on domain-specific text simplification confirms this pattern (<a href="https://arxiv.org/abs/2307.03569" target="_blank" rel="noopener noreferrer">Engelmann et al., 2023</a>; <a href="https://arxiv.org/abs/2410.20763" target="_blank" rel="noopener noreferrer">Asthana et al., 2024</a>).</li>
+          </ol>
+        </section>
+
+        <section id="limitations">
+          <h2>Limitations</h2>
+          <ol>
+            <li><strong>Sample size.</strong> The corpus of 100 passages (900 total evaluations) is sufficient for detecting the large effects reported here but limits statistical power for category-level comparisons, particularly in categories with fewer passages.</li>
+            <li><strong>Grade band.</strong> All passages target the 2nd&ndash;3rd grade reading band. Results may not generalize to other grade levels, where readability thresholds and vocabulary expectations differ.</li>
+            <li><strong>Text type.</strong> The corpus consists exclusively of single-paragraph expository passages. Performance on other formats &mdash; multi-paragraph texts, narrative writing, instructional prompts &mdash; remains untested.</li>
+            <li><strong>Model versions.</strong> Results reflect specific model versions available at the time of evaluation (Claude 4.6 Opus, Gemini 2.5 Pro, GPT-5.1). Model capabilities change with updates, and these findings represent a point-in-time snapshot.</li>
+          </ol>
+        </section>
+
+        <section id="data-availability">
+          <h2>Data Availability</h2>
+          <p>The OurDojo GLA Benchmark Dataset incorporates these evaluation results in their entirety. The 3&times;3 evaluation matrix provides nine independent assessments per passage, enabling analysis of inter-judge reliability and consensus thresholds. The dataset currently includes standardized evaluations of:</p>
+          <ul>
+            <li>Gemini (2026)</li>
+            <li>Claude (2026)</li>
+            <li>GPT (2026)</li>
+            <li>MagicSchool (2026)</li>
+            <li>Twee (2026)</li>
+          </ul>
+        </section>
+
+        <section id="conclusion">
+          <h2>Conclusion</h2>
+          <p>This analysis of 900 evaluations documents substantial variation across multiple dimensions of grade-level content generation and evaluation. Generator choice accounts for a 38-percentage-point performance spread. Judge severity varies by 21 percentage points. Self-evaluation bias ranges from +11pp to &minus;21.5pp. Science content lags Social Studies by 12.4 percentage points. Taken together, these magnitudes indicate that single-model generation and evaluation pipelines are unlikely to produce reliable grade-level accuracy assessments.</p>
+        </section>
+      </div>
+
+      <aside class="pub-attribution">
+        <h2>OurDojo GLA Framework Attribution Statement</h2>
+        <p>This evaluation applies the open-source Grade Level Appropriateness Evaluator developed by Learning Commons; OurDojo independently designed the study protocol, operationalized the framework at scale, and conducted the cross-tool benchmarking analysis presented here.</p>
+      </aside>
+    </article>
+  </main>
+
+  <footer>
+    <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>
+  </footer>
+
+  <script src="../nav.js" defer></script>
+  <script src="../publication.js" defer></script>
+</body>
+</html>
