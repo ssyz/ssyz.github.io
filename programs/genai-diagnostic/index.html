@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurDojo — AI Evaluation System Diagnostic</title>
+  <meta name="description" content="AI Evaluation System Diagnostic — identify where your AI is failing and get a concrete plan to fix it. $7,500, 3 weeks. OurDojo.">
+  <meta property="og:title" content="AI Evaluation System Diagnostic — OurDojo">
+  <meta property="og:description" content="Your AI is breaking in ways you can't see. We show you where, and how to fix it, in 3 weeks. $7,500, founding pricing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ourdojo.org/programs/genai-diagnosis/">
+  <meta property="og:image" content="https://ourdojo.org/images/ourdojo-2-nb.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFD51KX8B6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WFD51KX8B6');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/aae-logo.png">
+  <style>
+    /* ===== Design tokens (matches brand) ===== */
+    :root {
+      --color-accent: #d4a835;
+      --color-accent-light: rgba(212, 168, 53, 0.12);
+      --color-text: #1c1a14;
+      --color-text-muted: #7a7264;
+      --color-bg: #faf8f0;
+      --color-bg-alt: #f5f0e4;
+      --color-border: #d8d2c2;
+      --color-white: #ffffff;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ===== Reset ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== Page (print document) ===== */
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
+    html {
+      font-size: 11pt;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      font-size: 1.27rem;
+      line-height: 1.45;
+      color: var(--color-text);
+      background: #e8e6e0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Screen: paper preview ===== */
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      max-height: 11in;
+      margin: 0.5in auto;
+      background: var(--color-white);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+      padding: 0.4in 0.5in;
+      overflow: visible;
+    }
+
+    /* ===== Header bar ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-accent);
+      margin-bottom: 22px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-logo {
+      height: 28px;
+      width: auto;
+    }
+
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+    }
+
+    .header-url {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+
+    /* ===== Hero block ===== */
+    .hero {
+      text-align: center;
+      padding: 10px 0 6px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--color-text);
+      margin-bottom: 5px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .stats {
+      font-size: 1.15rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .hero .stats strong {
+      color: var(--color-text);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+      max-width: 6.5in;
+      margin: 0 auto;
+    }
+
+    /* ===== Shared section heading style ===== */
+    .results-section h2,
+    .audience-section h2,
+    .diagnostic-section h2,
+    .why-section h2,
+    .team h2 {
+      font-size: 0.93rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid var(--color-accent);
+    }
+
+    /* ===== Select Client Results ===== */
+    .results-section {
+      margin-bottom: 20px;
+    }
+
+    /* ===== Why OurDojo ===== */
+    .audience-section {
+      margin-bottom: 20px;
+    }
+
+    .audience-section p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--color-text-muted);
+    }
+
+    .proof-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+.proof-point {
+      flex: 1;
+      background: var(--color-accent-light);
+      border-radius: 6px;
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    .proof-point .metric {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      display: block;
+    }
+
+    .proof-point .metric-label {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+      display: block;
+    }
+
+    /* ===== Diagnostic (deliverables + activities) ===== */
+    .diagnostic-section {
+      margin-bottom: 20px;
+    }
+
+    .deliverables {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .deliverable {
+      background: var(--color-bg);
+      border-radius: 6px;
+      padding: 14px 16px;
+      border-top: 3px solid var(--color-accent);
+    }
+
+    .deliverable-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+
+    .deliverable-desc {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.35;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .deliverable ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .deliverable li {
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+
+    .deliverable li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* ===== Guarantee ===== */
+    .guarantee {
+      margin-bottom: 20px;
+      padding: 10px 14px;
+      border-left: 4px solid var(--color-accent);
+      background: var(--color-accent-light);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .guarantee-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 3px;
+    }
+
+    .guarantee p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== Who This Is For ===== */
+    .why-section {
+      margin-bottom: 20px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 16px;
+    }
+
+    .why-grid li {
+      font-size: 0.93rem;
+      line-height: 1.35;
+      padding-left: 12px;
+      position: relative;
+      list-style: none;
+    }
+
+    .why-grid li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+      font-size: 0.93rem;
+    }
+
+    /* ===== Team + CTA ===== */
+    .bottom-row {
+      display: block;
+    }
+
+    .team {
+      margin-bottom: 12px;
+    }
+
+    .team-lead {
+      margin-bottom: 4px;
+    }
+
+    .team-lead-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .team-lead-role {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+    }
+
+    .team-lead-bio {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+
+    .cta-block {
+      text-align: center;
+      padding-top: 6px;
+    }
+
+    .cta-email {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .cta-tagline {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== Print overrides ===== */
+    @media print {
+      body {
+        background: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: auto;
+        min-height: auto;
+        max-height: none;
+        margin: 0;
+        padding: 0.4in 0.5in;
+        box-shadow: none;
+        overflow: visible;
+      }
+    }
+
+    /* ===== Mobile screen ===== */
+    @media screen and (max-width: 9in) {
+      .page {
+        width: 100%;
+        min-height: auto;
+        max-height: none;
+        margin: 0;
+        padding: 0.3in;
+        box-shadow: none;
+      }
+
+      body {
+        background: var(--color-white);
+      }
+
+      .deliverables {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-points {
+        flex-direction: column;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-left">
+      <img src="../../images/ourdojo-2-nb.png" alt="OurDojo" class="header-logo">
+      <span class="header-title">AI Evaluation System Diagnostic</span>
+    </div>
+    <a href="https://ourdojo.org" target="_blank" rel="noopener noreferrer" class="header-url">ourdojo.org</a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Your AI is breaking in ways you can’t see.<br>We show you where, and how to fix it, in 3 weeks.</h1>
+    <p class="stats">AI Evaluation System Diagnostic &middot; $7,500 (Founding Pricing) &middot; 3 Weeks</p>
+  </section>
+
+  <!-- ===== SELECT CLIENT RESULTS ===== -->
+  <section class="results-section">
+    <h2>Select Client Results</h2>
+    <div class="proof-points">
+      <div class="proof-point">
+        <span class="metric">+28pp</span>
+        <span class="metric-label">quality gain in brand voice alignment for <strong>Posh</strong></span>
+      </div>
+      <div class="proof-point">
+        <span class="metric">+17pp</span>
+        <span class="metric-label">quality gain in grade-level accuracy for <strong>MagicSchool</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO THIS IS FOR ===== -->
+  <section class="why-section">
+    <h2>Who This Is For</h2>
+    <ul class="why-grid">
+      <li>You don&rsquo;t fully trust your AI outputs</li>
+      <li>Your team is stuck doing manual QA</li>
+      <li>You&rsquo;re making changes without knowing what broke</li>
+      <li>Your metrics don&rsquo;t reflect real-world quality</li>
+      <li>You&rsquo;re unsure where to focus engineering effort</li>
+    </ul>
+  </section>
+
+  <!-- ===== WHAT YOU GET ===== -->
+  <section class="diagnostic-section">
+    <h2>What You Get (3-Week Diagnostic)</h2>
+    <div class="deliverables">
+      <div class="deliverable">
+        <div class="deliverable-name">Error Taxonomy</div>
+        <p class="deliverable-desc">What&rsquo;s breaking, how often, and how severely</p>
+        <ul>
+          <li>Identify where your AI system is failing (and why)</li>
+          <li>Map your highest-impact error modes</li>
+        </ul>
+      </div>
+      <div class="deliverable">
+        <div class="deliverable-name">Evaluation Specifications</div>
+        <p class="deliverable-desc">How to test your system reliably and repeatedly</p>
+        <ul>
+          <li>Design application-specific evals</li>
+          <li>Audit current metrics &amp; experimentation loop</li>
+        </ul>
+      </div>
+      <div class="deliverable">
+        <div class="deliverable-name">Prioritized Roadmap</div>
+        <p class="deliverable-desc">What to fix first for maximum impact</p>
+        <ul>
+          <li>Identify bottlenecks slowing iteration</li>
+          <li>Rank fixes by effort vs. quality gain</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY OURDOJO ===== -->
+  <section class="audience-section">
+    <h2>Why OurDojo</h2>
+    <p>OurDojo started in education, one of the most demanding environments for AI quality, with multi-layered standards from government regulation to research-backed learning frameworks. The evaluation infrastructure we built there applies to every GenAI product: mapping failure modes, designing domain-specific evals, and building feedback loops that let teams iterate with confidence.</p>
+  </section>
+
+  <!-- ===== TEAM + CTA ===== -->
+  <div class="bottom-row">
+    <div class="team">
+      <h2>Your Team</h2>
+      <div class="team-lead">
+        <div class="team-lead-name">Jay Syz <span class="team-lead-role">&mdash; Founder &amp; Lead Evaluator</span></div>
+        <p class="team-lead-bio">Applied AI evaluation specialist with engineering foundations from Google. Built evaluation systems for venture-backed AI companies, identifying failure modes that drove double-digit accuracy improvements. Founded OurDojo to bring rigorous, independent evaluation to GenAI products.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GUARANTEE ===== -->
+  <div class="guarantee">
+    <div class="guarantee-label">Guarantee</div>
+    <p>If we cannot deliver clarity on where your system is breaking and a concrete plan to fix it in 3 weeks, we continue working at no additional cost until we do.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

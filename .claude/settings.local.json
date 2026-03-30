@@ -31,7 +31,8 @@
       "WebFetch(domain:learningcommons.org)",
       "Bash(python3:*)",
       "Bash(ls:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "WebFetch(domain:parlance-labs.com)"
     ]
   }
 }
