@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFD51KX8B6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WFD51KX8B6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The K-12 AI Quality Playbook &ndash; OurDojo</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../publication.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="reading-progress">
+    <div class="reading-progress-fill"></div>
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">OurDojo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/research" class="nav-link">Research</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-services-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg class="services-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-panel" role="menu">
+            <a href="/programs/k12-genai-eval/vendors" class="nav-dropdown-item" role="menuitem">For Software Vendors</a>
+            <a href="/programs/k12-genai-eval/districts" class="nav-dropdown-item" role="menuitem">For Schools and Districts</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="publication">
+      <div class="pub-header">
+        <p class="pub-category">AI Evaluation: Playbook</p>
+        <h1 class="pub-title">The K-12 AI Quality Playbook</h1>
+        <p class="pub-date">April 2026</p>
+        <p class="pub-eval-framework">A practical framework for EdTech product and engineering teams shipping AI features</p>
+      </div>
+
+      <figure class="pub-hero-image" aria-hidden="false">
+        <svg class="hero-loop" viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-loop-title hero-loop-desc">
+          <title id="hero-loop-title">The Quality Loop</title>
+          <desc id="hero-loop-desc">A circular three-step diagram: Measure, Diagnose, Build, repeating clockwise.</desc>
+
+          <defs>
+            <marker id="hl-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="hl-arrow-head" d="M 0 0 L 10 5 L 0 10 z" />
+            </marker>
+          </defs>
+
+          <!-- Arrows: drawn before nodes so node corners render cleanly on top.
+               Nodes sit on a circle of radius 170 around (380, 252); arrows curve outward between them. -->
+          <!-- Measure → Diagnose -->
+          <path class="hl-arrow" d="M 490 95 Q 670 145 497 305" marker-end="url(#hl-head)" />
+
+          <!-- Diagnose → Build -->
+          <path class="hl-arrow" d="M 497 369 Q 380 408 263 369" marker-end="url(#hl-head)" />
+
+          <!-- Build → Measure -->
+          <path class="hl-arrow" d="M 263 305 Q 90 145 270 95" marker-end="url(#hl-head)" />
+
+          <!-- Measure node (top) -->
+          <g transform="translate(380, 82)">
+            <rect class="hl-node-bg" x="-110" y="-32" width="220" height="64" rx="10" />
+            <text class="hl-node-num" x="-94" y="-10">01</text>
+            <text class="hl-node-title" x="0" y="-4" text-anchor="middle">Measure</text>
+            <text class="hl-node-sub" x="0" y="17" text-anchor="middle">IS IT GOOD ENOUGH?</text>
+          </g>
+
+          <!-- Diagnose node (bottom-right) -->
+          <g transform="translate(527, 337)">
+            <rect class="hl-node-bg" x="-110" y="-32" width="220" height="64" rx="10" />
+            <text class="hl-node-num" x="-94" y="-10">02</text>
+            <text class="hl-node-title" x="0" y="-4" text-anchor="middle">Diagnose</text>
+            <text class="hl-node-sub" x="0" y="17" text-anchor="middle">WHERE IS IT FAILING?</text>
+          </g>
+
+          <!-- Build node (bottom-left) -->
+          <g transform="translate(233, 337)">
+            <rect class="hl-node-bg" x="-110" y="-32" width="220" height="64" rx="10" />
+            <text class="hl-node-num" x="-94" y="-10">03</text>
+            <text class="hl-node-title" x="0" y="-4" text-anchor="middle">Build</text>
+            <text class="hl-node-sub" x="0" y="17" text-anchor="middle">PREVENT REGRESSIONS</text>
+          </g>
+        </svg>
+      </figure>
+
+      <div class="pub-body">
+        <nav class="pub-toc">
+          <p class="pub-toc-heading">Contents</p>
+          <ul class="pub-toc-list">
+            <li><a href="#why" class="pub-toc-link">Why This Playbook Exists</a></li>
+            <li><a href="#landscape" class="pub-toc-link">The Independent Evaluation Landscape</a></li>
+            <li><a href="#loop" class="pub-toc-link">The Quality Loop</a></li>
+            <li class="toc-sub"><a href="#measure" class="pub-toc-link">Measure</a></li>
+            <li class="toc-sub"><a href="#diagnose" class="pub-toc-link">Diagnose</a></li>
+            <li class="toc-sub"><a href="#build" class="pub-toc-link">Build</a></li>
+            <li><a href="#returns" class="pub-toc-link">Compounding Returns</a></li>
+            <li><a href="#start" class="pub-toc-link">Where to Start</a></li>
+            <li><a href="#appendix" class="pub-toc-link">Appendix: RFP Language</a></li>
+          </ul>
+        </nav>
+
+        <section id="why">
+          <p>In the last six months, AI quality in K-12 has shifted from a reputation issue to a procurement one. Districts are building AI requirements into RFPs, states are putting out guidance, and boards are asking questions product teams can&rsquo;t just leave to marketing anymore.</p>
+          <p>If you&rsquo;re reading this, you already feel that pressure. The question isn&rsquo;t whether to evaluate, but how to do it in a way your team can actually sustain. This playbook is a 3-step loop for getting there: <strong>Measure</strong>, <strong>Diagnose</strong>, <strong>Build</strong>. It&rsquo;s the framework we use with vendor teams who need defensible quality evidence on a product-team timeline.</p>
+
+          <h2>Why This Playbook Exists</h2>
+          <h3>The Credibility Gap Is Two-Sided</h3>
+
+          <aside class="pub-pullquote">
+            <div class="pub-pullquote-stat">~10%</div>
+            <p class="pub-pullquote-text">of AI-based approaches in education have undergone rigorous independent validation.<cite>UNESCO</cite></p>
+          </aside>
+
+          <p>The other 90% are shipping anyway, which puts both sides of the market in a difficult spot.</p>
+          <p>Buyers are asked to trust AI tools without independent evidence. Sellers lack standardized methods for proving quality &mdash; not because they don&rsquo;t want to, but because deep AI evaluation expertise sits outside most product teams&rsquo; core capabilities. This is a structural gap in the toolchain. This playbook seeks to close that gap with a repeatable loop vendors can adopt.</p>
+
+          <h3>What This Is (and What It Isn&rsquo;t)</h3>
+          <p><strong>What it is:</strong> a 3-step loop framed for vendor product and engineering teams, with concrete deliverables at each step and a path that scales from a one-time experiment to a permanent quality function.</p>
+          <p><strong>What it isn&rsquo;t:</strong></p>
+          <ul>
+            <li>Not an academic methodology paper.</li>
+            <li>Not a model-selection guide. The loop applies regardless of which foundation model you ship on.</li>
+          </ul>
+          <p><strong>Who this is for:</strong> product and engineering teams shipping AI features that <em>generate educational content</em> &mdash; lessons, passages, items, feedback, tutoring turns. If your AI surface is non-content (recommenders, analytics, scheduling), the loop&rsquo;s shape still applies but the rubrics in Step 1 won&rsquo;t.</p>
+        </section>
+
+        <section id="landscape">
+          <h2>The Independent Evaluation Landscape</h2>
+          <p>Before we get to the loop, it&rsquo;s worth knowing what the landscape actually looks like. A vendor exploring &ldquo;third-party eval&rdquo; today has four real options:</p>
+
+          <div class="comparison-table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Strength</th>
+                  <th>Weakness</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="metric-label">Internal evals<span style="font-weight:400; color:var(--color-text-muted); font-size:0.78rem; display:block; white-space:normal; margin-top:2px;">(your own QA)</span></td>
+                  <td>Cheap, fast, deeply contextual</td>
+                  <td>Not independent &mdash; can&rsquo;t be cited externally</td>
+                </tr>
+                <tr>
+                  <td class="metric-label">Horizontal platforms<span style="font-weight:400; color:var(--color-text-muted); font-size:0.78rem; display:block; white-space:normal; margin-top:2px;">(Braintrust, LangSmith, Galileo)</span></td>
+                  <td>Strong tooling, broad coverage</td>
+                  <td>Generic; no K-12 domain rubrics or established frameworks</td>
+                </tr>
+                <tr>
+                  <td class="metric-label">Nonprofits<span style="font-weight:400; color:var(--color-text-muted); font-size:0.78rem; display:block; white-space:normal; margin-top:2px;">(ISTE, Common Sense)</span></td>
+                  <td>Trusted brand in education</td>
+                  <td>Rubric-based reviews of features, not measurement of content quality; slower cycles</td>
+                </tr>
+                <tr>
+                  <td class="metric-label">Academic / research<span style="font-weight:400; color:var(--color-text-muted); font-size:0.78rem; display:block; white-space:normal; margin-top:2px;">(WestEd, SRI)</span></td>
+                  <td>Gold-standard rigor</td>
+                  <td>$150K+ engagements, 12&ndash;36 months, RCT-shaped</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Each of these has a place. Internal evals are how you ship daily, and horizontal platforms are where most teams pick up tooling. Nonprofits and academics carry weight in policy contexts.</p>
+
+          <div class="landscape-callout">
+            Nevertheless, the market has a missing quadrant: <strong>fast, independent, and K-12-deep</strong> &mdash; content-quality measurement against established frameworks (Student Achievement Partners, CAST, ANet), on a timeline a product team can actually use against the next release. That&rsquo;s the gap this playbook is written from.
+          </div>
+        </section>
+
+        <section id="loop">
+          <h2>The Quality Loop</h2>
+          <p>The loop has three steps, each answering a different question:</p>
+          <ul>
+            <li><strong>Measure</strong> &mdash; Is my AI good enough?</li>
+            <li><strong>Diagnose</strong> &mdash; Where and why is it failing?</li>
+            <li><strong>Build</strong> &mdash; How do I prevent regression and ship faster?</li>
+          </ul>
+          <p>The steps map to a vendor&rsquo;s quality maturity. Measure produces one-off evidence, like a snapshot you can put in a sales deck or RFP response. Diagnose turns that snapshot into a roadmap. Build turns the roadmap into infrastructure: continuous quality assurance that holds up across model swaps, prompt changes, and new content domains.</p>
+
+          <aside class="pub-sidebar">
+            <span class="pub-sidebar-label">Watch out</span>
+            <h3 class="pub-sidebar-title">Three ways vendors misimplement the loop</h3>
+            <ol class="pub-sidebar-list">
+              <li class="pub-sidebar-item">
+                <strong>The one-shot trap.</strong>
+                A single eval result becomes a marketing asset and the loop stops. The next model update silently regresses; nobody notices until a district complains.
+              </li>
+              <li class="pub-sidebar-item">
+                <strong>The build-without-diagnose trap.</strong>
+                A team buys observability tooling, instruments everything, and ends up with dashboards full of metrics that don&rsquo;t tell anyone what to fix. Diagnosis is the bridge between measurement and action; without it, &ldquo;Build&rdquo; becomes vanity infrastructure.
+              </li>
+              <li class="pub-sidebar-item">
+                <strong>The self-evaluation trap.</strong>
+                Internal QA stands in for independent evaluation. This works until a district asks for evidence &mdash; at which point the vendor has rich internal data and nothing citable.
+              </li>
+            </ol>
+          </aside>
+        </section>
+
+        <section id="measure" class="step-section">
+          <div class="step-marker">
+            <span class="step-marker-num">01</span>
+            <span class="step-marker-label">Step One</span>
+            <span class="step-marker-rule"></span>
+          </div>
+          <h2>Measure AI Content Quality</h2>
+          <p>Good measurement in K-12 has three properties: it&rsquo;s grounded in established frameworks (Student Achievement Partners, CAST, Achievement Network), it uses domain-specific rubrics, and it evaluates <em>actual AI output</em> &mdash; not feature checklists. A grade-level accuracy score on actual generated passages tells you something a yes/no on &ldquo;supports differentiation&rdquo; never will.</p>
+          <p>Why third-party? Three reasons stack: <strong>procurement credibility</strong> (districts increasingly require it), <strong>marketing defensibility</strong> (independent numbers travel further than internal ones), and <strong>board-level pressure</strong> (your CEO is being asked questions that need an answer with a citation).</p>
+          <p>A defensible third-party measurement engagement typically lands in the <strong>low thousands of dollars and weeks-not-months</strong>. That&rsquo;s worth saying out loud because most vendors assume &ldquo;third-party&rdquo; means six-figure academic study. It doesn&rsquo;t have to. Internal-only QA costs nothing on paper but it doesn&rsquo;t build trust with external stakeholders, and trust is paramount for product success.</p>
+          <p>Measurement also has to actually discriminate between tools. In our <a href="benchmarking-grade-level-accuracy.html">first vendor benchmark</a>, Twee scored 89% on grade-level accuracy in Science while <a href="magicschool-evaluation.html">MagicSchool&rsquo;s February evaluation</a> put them at 35% on the same dimension. That spread is the whole point of measurement &mdash; it surfaces the differences a buyer needs to make a decision and gives a vendor a defensible number to point at.</p>
+        </section>
+
+        <section id="diagnose" class="step-section">
+          <div class="step-marker">
+            <span class="step-marker-num">02</span>
+            <span class="step-marker-label">Step Two</span>
+            <span class="step-marker-rule"></span>
+          </div>
+          <h2>Diagnose Failure Modes</h2>
+          <p>Measurement tells you <em>whether</em> you have a problem. Diagnosis tells you <em>where</em> and <em>why</em> &mdash; and that&rsquo;s what makes the next sprint possible.</p>
+          <p>The MagicSchool February evaluation is a good worked example. The aggregate score (66%) was useful for a press release, but the failure-mode heatmap was useful for engineering. Failures localized hard: Science was the weakest subject, &ldquo;Life Cycles &amp; Traits&rdquo; was the weakest unit within Science, and <em>every</em> failure across the dataset skewed too hard. That&rsquo;s three actionable findings from one evaluation, and each implies a different fix.</p>
+
+          <figure class="pub-figure">
+            <div class="heatmap" role="img" aria-label="Illustrative failure-mode heatmap. Failures concentrate in Science (especially Life Cycles and Traits) and are sparse across Social Studies units.">
+              <div class="heatmap-axis-top">Failure concentration by unit (darker = more misses)</div>
+              <div class="heatmap-row">
+                <div class="heatmap-row-label">Science</div>
+                <div class="heatmap-cells">
+                  <div class="heatmap-cell" data-intensity="4"><span class="hm-name">Life Cycles &amp; Traits</span></div>
+                  <div class="heatmap-cell" data-intensity="3"><span class="hm-name">Forces &amp; Motion</span></div>
+                  <div class="heatmap-cell" data-intensity="2"><span class="hm-name">Ecosystems</span></div>
+                  <div class="heatmap-cell" data-intensity="2"><span class="hm-name">Earth Systems</span></div>
+                </div>
+              </div>
+              <div class="heatmap-row">
+                <div class="heatmap-row-label">Social Studies</div>
+                <div class="heatmap-cells">
+                  <div class="heatmap-cell" data-intensity="1"><span class="hm-name">Civics</span></div>
+                  <div class="heatmap-cell" data-intensity="0"><span class="hm-name">Economics</span></div>
+                  <div class="heatmap-cell" data-intensity="1"><span class="hm-name">Geography</span></div>
+                  <div class="heatmap-cell" data-intensity="0"><span class="hm-name">History</span></div>
+                </div>
+              </div>
+              <div class="heatmap-legend">
+                <span>Few misses</span>
+                <div class="heatmap-legend-bar" aria-hidden="true">
+                  <span data-intensity="0"></span>
+                  <span data-intensity="1"></span>
+                  <span data-intensity="2"></span>
+                  <span data-intensity="3"></span>
+                  <span data-intensity="4"></span>
+                </div>
+                <span>Many misses</span>
+              </div>
+            </div>
+            <figcaption>Illustrative failure-mode heatmap. Cells show relative concentration of grade-level misses by unit, adapted from the qualitative pattern observed in MagicSchool&rsquo;s February 2026 evaluation.</figcaption>
+          </figure>
+
+          <p>A taxonomy of common K-12 AI failure modes that vendors should expect to find:</p>
+          <ul>
+            <li><strong>Grade-level drift</strong> &mdash; content reads above or below the target band. Skews have different fixes. For example, too-hard usually means vocabulary or syntactic complexity; too-easy usually means the model is hedging away from substance.</li>
+            <li><strong>Subject-specific weakness</strong> &mdash; Science is consistently harder than Social Studies for current models. Our <a href="gla-frontier-accuracy.html">Benchmark Note #2</a> found a 12.4pp gap on grade-level accuracy across frontier models. Technical vocabulary is hard to simplify without distorting meaning.</li>
+            <li><strong>Specialized-vocabulary blind spots</strong> &mdash; domain terms that read fine to an adult but land above grade level for the target reader. Often hides inside otherwise well-leveled prose.</li>
+            <li><strong>Judge disagreement</strong> &mdash; when your evaluation judges disagree with each other, that&rsquo;s not noise to average away. It&rsquo;s a signal of model uncertainty, often pointing at content the underlying generator is least confident about.</li>
+          </ul>
+          <p>Diagnosis is the bridge between measurement and action. Without it, a measurement result is just a number. With it, you have a prioritized list of where to point the next sprint.</p>
+        </section>
+
+        <section id="build" class="step-section">
+          <div class="step-marker">
+            <span class="step-marker-num">03</span>
+            <span class="step-marker-label">Step Three</span>
+            <span class="step-marker-rule"></span>
+          </div>
+          <h2>Build the System</h2>
+          <p>A single evaluation gives you a snapshot. An eval <em>system</em> unlocks a continuous improvement flywheel.</p>
+          <p>The clearest illustration is the MagicSchool <a href="magicschool-iterative-evaluation.html">February-to-March arc</a>. One diagnosis cycle, one sprint of changes, and the headline numbers moved from <strong>66% to 71% overall</strong> &mdash; with <strong>Science specifically jumping from 35% to 52%</strong>. The same loop, run twice, produced a measurable, defensible improvement. That&rsquo;s what continuous quality looks like in practice.</p>
+
+          <figure class="pub-figure">
+            <div class="before-after" role="img" aria-label="MagicSchool grade-level accuracy improvement, February to March 2026. Overall improved from 66 percent to 71 percent. Science improved from 35 percent to 52 percent.">
+              <div class="ba-row">
+                <div class="ba-row-label">Overall</div>
+                <div class="ba-bars">
+                  <div class="ba-bar ba-bar-before">
+                    <span class="ba-bar-tag">Feb</span>
+                    <div class="ba-bar-track"><div class="ba-bar-fill" style="width: 66%;">66%</div></div>
+                  </div>
+                  <div class="ba-bar ba-bar-after">
+                    <span class="ba-bar-tag">Mar</span>
+                    <div class="ba-bar-track"><div class="ba-bar-fill" style="width: 71%;">71%</div></div>
+                  </div>
+                </div>
+                <div class="ba-delta">+5pp</div>
+              </div>
+              <div class="ba-row">
+                <div class="ba-row-label">Science</div>
+                <div class="ba-bars">
+                  <div class="ba-bar ba-bar-before">
+                    <span class="ba-bar-tag">Feb</span>
+                    <div class="ba-bar-track"><div class="ba-bar-fill" style="width: 35%;">35%</div></div>
+                  </div>
+                  <div class="ba-bar ba-bar-after">
+                    <span class="ba-bar-tag">Mar</span>
+                    <div class="ba-bar-track"><div class="ba-bar-fill" style="width: 52%;">52%</div></div>
+                  </div>
+                </div>
+                <div class="ba-delta">+17pp</div>
+              </div>
+            </div>
+            <figcaption>MagicSchool grade-level accuracy on Informational Texts, February vs. March 2026. Source: <a href="magicschool-iterative-evaluation.html">OurDojo iterative evaluation</a>.</figcaption>
+          </figure>
+
+          <p>Why iteration matters: AI quality isn&rsquo;t a launch problem, it&rsquo;s an <em>operational</em> one. An inherent characteristic of LLM-based applications is that models drift and prompts decay. New content domains break things that worked last quarter. One-shot evaluation gives you a snapshot, while continuous evaluation tells you when the snapshot is no longer true.</p>
+
+          <h3>Your Eval System in Practice</h3>
+          <p>Imagine you&rsquo;ve just shipped a passage-generation feature. You run a baseline &mdash; 200 passages graded against the rubric, evaluated by multiple judges so the score isn&rsquo;t an artifact of any one model&rsquo;s quirks. The result: 78% overall, but only 54% on STEM, with every failure skewing too hard. That&rsquo;s your <strong>Measure</strong> step, and it&rsquo;s already handed you something specific to work on.</p>
+          <p>Diagnosis points at a prompt that constrains vocabulary, but not syntactic complexity in technical content. You add a sentence-length cap and tell the model to introduce a concrete example before any abstract concept. That&rsquo;s <strong>Diagnose</strong> &mdash; not a deck, just a localized hypothesis your engineers can act on this sprint. Re-run the suite: STEM jumps to 71%, overall to 82%. You ship.</p>
+          <p>So far, this is a one-shot. Where it becomes a <em>system</em> is what happens next. You wire that 200-passage suite into CI with thresholds that flag any subject-level regression. Six weeks later, a foundation-model upgrade silently drops STEM back to 60%. The suite catches it within a day. You roll back, adapt the prompts through offline experimentation, and ship the upgrade two weeks later without a customer ever seeing the regression. That&rsquo;s the <strong>Build</strong> step paying off.</p>
+          <p>The benefit is operational confidence. The team running the loop on every release is the team that doesn&rsquo;t get blindsided and the team with receipts when a district asks how AI quality is monitored.</p>
+        </section>
+
+        <section id="returns">
+          <h2>Compounding Returns</h2>
+          <p>One eval gives you a snapshot. An eval system is critical quality infrastructure that benefits multiple audiences:</p>
+          <ul>
+            <li><strong>Product</strong> knows what to build next. Sprint planning starts from a ranked list of measured failures, not the loudest customer complaint.</li>
+            <li><strong>Marketing and sales</strong> have independent numbers to point at. RFP responses stop being prose-heavy and start being citation-heavy.</li>
+            <li><strong>Procurement-facing teams</strong> have answers ready when district questions land. The cost of a procurement cycle drops.</li>
+          </ul>
+          <p>There&rsquo;s a quieter compounding effect, too. Failure-mode taxonomies accumulate. Each evaluation a vendor runs against a shared methodology contributes to a growing K-12 benchmark dataset, which means each new diagnosis is informed by patterns observed across the ecosystem. The third vendor to evaluate Science content gets a sharper diagnosis than the first, <em>because</em> the first two have come before. Vendors who participate in standardized benchmarking inherit that compounding sharpness; those who don&rsquo;t, run their loops in isolation.</p>
+        </section>
+
+        <section id="start">
+          <h2>Where to Start</h2>
+          <p>If you&rsquo;re a vendor reading this, three questions decide where the loop starts for your team:</p>
+
+          <div class="decision-tree">
+            <div class="dt-branch">
+              <div class="dt-node dt-node--question">Have an independent evaluation baseline?</div>
+              <div class="dt-children">
+                <div class="dt-child">
+                  <span class="dt-edge-label">No</span>
+                  <a class="dt-node dt-node--leaf" href="/programs/k12-genai-eval/vendors">
+                    <span class="dt-action-label">Start with</span>
+                    <span class="dt-action-name">K-12 GenAI Evaluation Report &rarr;</span>
+                    <span class="dt-leaf-note">Then sequence into the Diagnostic once you have a baseline.</span>
+                  </a>
+                </div>
+                <div class="dt-child">
+                  <span class="dt-edge-label">Yes</span>
+                  <div class="dt-branch">
+                    <div class="dt-node dt-node--question">Do you have a continuous improvement loop?</div>
+                    <div class="dt-children">
+                      <div class="dt-child">
+                        <span class="dt-edge-label">No</span>
+                        <a class="dt-node dt-node--leaf" href="/programs/genai-diagnostic">
+                          <span class="dt-action-label">Start with</span>
+                          <span class="dt-action-name">AI Evaluation System Diagnostic &rarr;</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p>The vendors who treat AI quality as infrastructure will own the procurement conversations of 2027.</p>
+        </section>
+
+        <section id="appendix">
+          <h2>Appendix: Drop-in RFP Language</h2>
+          <p>Districts increasingly include AI-quality questions in RFPs, and proposal teams need defensible answers fast. The paragraphs below are ready to use &mdash; just adapt the names and link targets to your own product.</p>
+
+          <div class="rfp-block">
+            <span class="rfp-eyebrow">RFP Question</span>
+            <p class="rfp-question">&ldquo;How do you validate the quality of AI-generated content?&rdquo;</p>
+            <div class="rfp-answer">
+              <p>We validate AI-generated content through independent third-party evaluation against established educational frameworks, including those developed by Student Achievement Partners, CAST, and Achievement Network. Our content is benchmarked using OurDojo&rsquo;s published K-12 GenAI evaluation methodology, which evaluates real generated output against domain-specific rubrics rather than feature checklists. Independent benchmark results are available at [link to OurDojo evaluation].</p>
+            </div>
+          </div>
+
+          <div class="rfp-block">
+            <span class="rfp-eyebrow">RFP Question</span>
+            <p class="rfp-question">&ldquo;How do you monitor AI quality over time?&rdquo;</p>
+            <div class="rfp-answer">
+              <p>Quality monitoring is treated as an operational, not one-time, function. We run a regression evaluation suite on every model or prompt change, and we re-baseline against the OurDojo benchmark methodology at a regular cadence. Our most recent iteration cycle moved [headline metric] from X% to Y% &mdash; see [link to iterative case study] for an illustration of the process.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <a href="mailto:hello@ourdojo.org">hello@ourdojo.org</a>
+  </footer>
+
+  <script src="../nav.js" defer></script>
+  <script src="../publication.js" defer></script>
+</body>
+</html>

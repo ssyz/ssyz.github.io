@@ -128,9 +128,12 @@
 }
 
 .pub-toc-list li {
-  counter-increment: toc;
   padding: 6px 0;
   border-bottom: 1px solid var(--color-border);
+}
+
+.pub-toc-list li:not(.toc-sub) {
+  counter-increment: toc;
 }
 
 .pub-toc-list li:last-child {
@@ -139,7 +142,7 @@
 }
 
 .pub-toc-list li.toc-sub {
-  padding-left: 16px;
+  padding-left: 24px;
 }
 
 .pub-toc-link::before {
@@ -149,6 +152,10 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--color-border);
+}
+
+.toc-sub .pub-toc-link::before {
+  content: none;
 }
 
 .pub-toc-link {
@@ -1033,4 +1040,764 @@
   .sourced-term--whimsy .sourced-term-popover.visible {
     transform: translateX(-50%) translateY(0) rotate(0);
   }
+}
+
+/* ==============================================================
+   Playbook patterns
+   New components introduced for the K-12 AI Quality Playbook.
+   All use existing design tokens — no new colors.
+   ============================================================== */
+
+/* Hero loop diagram (inline SVG inside .pub-hero-image) */
+.pub-hero-image .hero-loop {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hero-loop .hl-arrow {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.hero-loop .hl-arrow-head {
+  fill: var(--color-accent);
+}
+
+.hero-loop .hl-node-bg {
+  fill: var(--color-bg);
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+}
+
+.hero-loop .hl-node-num {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--color-accent);
+  letter-spacing: 1.5px;
+}
+
+.hero-loop .hl-node-title {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 23px;
+  font-weight: 600;
+  fill: var(--color-text);
+}
+
+.hero-loop .hl-node-sub {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 10px;
+  fill: var(--color-text-muted);
+  letter-spacing: 1.4px;
+}
+
+@media (max-width: 480px) {
+  .pub-hero-image .hero-loop {
+    padding: 12px;
+  }
+}
+
+/* Pull-quote stat callout */
+.pub-pullquote {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 24px 28px;
+  margin: 28px 0;
+  background: rgba(217, 119, 87, 0.06);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.pub-pullquote-stat {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-pullquote-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.pub-pullquote-text cite {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .pub-pullquote {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 22px;
+  }
+  .pub-pullquote-stat {
+    font-size: 2.4rem;
+  }
+}
+
+/* Sidebar callout (anti-patterns, framework warnings) */
+.pub-sidebar {
+  position: relative;
+  padding: 24px 28px;
+  margin: 28px 0;
+  background: rgba(0, 0, 0, 0.025);
+  border: 1px dashed var(--color-border);
+  border-radius: 10px;
+}
+
+.pub-sidebar-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+
+.pub-sidebar-title {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.pub-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: trap;
+}
+
+.pub-sidebar-item {
+  position: relative;
+  padding: 16px 0 16px 40px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  counter-increment: trap;
+}
+
+.pub-sidebar-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.pub-sidebar-item:last-child {
+  padding-bottom: 0;
+}
+
+.pub-sidebar-item::before {
+  content: counter(trap, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+}
+
+.pub-sidebar-item:first-child::before {
+  top: 0;
+}
+
+.pub-sidebar-item strong {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+  .pub-sidebar {
+    padding: 20px 18px;
+  }
+  .pub-sidebar-item {
+    padding-left: 32px;
+  }
+}
+
+/* Step marker — eyebrow above step section H2 */
+.step-section .step-marker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.step-marker-num {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.step-marker-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-text-muted);
+}
+
+.step-marker-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.step-section h2 {
+  margin-top: 0;
+}
+
+/* Failure-mode heatmap */
+.heatmap {
+  margin: 0;
+}
+
+.heatmap-axis-top {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.heatmap-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 8px;
+  margin-bottom: 6px;
+  align-items: stretch;
+}
+
+.heatmap-row-label {
+  display: flex;
+  align-items: center;
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.heatmap-cells {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.heatmap-cell {
+  padding: 14px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 56px;
+  line-height: 1.2;
+}
+
+.heatmap-cell .hm-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.heatmap-cell[data-intensity="0"] {
+  background: rgba(217, 119, 87, 0.06);
+  color: var(--color-text-muted);
+}
+.heatmap-cell[data-intensity="1"] {
+  background: rgba(217, 119, 87, 0.16);
+  color: var(--color-text);
+}
+.heatmap-cell[data-intensity="2"] {
+  background: rgba(217, 119, 87, 0.32);
+  color: var(--color-text);
+}
+.heatmap-cell[data-intensity="3"] {
+  background: rgba(217, 119, 87, 0.55);
+  color: #fff;
+}
+.heatmap-cell[data-intensity="4"] {
+  background: rgba(217, 119, 87, 0.85);
+  color: #fff;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.heatmap-legend-bar {
+  display: flex;
+  height: 10px;
+  width: 140px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.heatmap-legend-bar span {
+  flex: 1;
+}
+
+.heatmap-legend-bar span[data-intensity="0"] { background: rgba(217, 119, 87, 0.06); }
+.heatmap-legend-bar span[data-intensity="1"] { background: rgba(217, 119, 87, 0.16); }
+.heatmap-legend-bar span[data-intensity="2"] { background: rgba(217, 119, 87, 0.32); }
+.heatmap-legend-bar span[data-intensity="3"] { background: rgba(217, 119, 87, 0.55); }
+.heatmap-legend-bar span[data-intensity="4"] { background: rgba(217, 119, 87, 0.85); }
+
+@media (max-width: 768px) {
+  .heatmap-row {
+    grid-template-columns: 100px 1fr;
+    gap: 6px;
+  }
+  .heatmap-row-label {
+    font-size: 0.85rem;
+  }
+  .heatmap-cells {
+    gap: 3px;
+  }
+  .heatmap-cell {
+    padding: 10px 4px;
+    min-height: 48px;
+  }
+  .heatmap-cell .hm-name {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heatmap-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+  .heatmap-row-label {
+    margin-bottom: 6px;
+  }
+}
+
+/* Before/after horizontal bars */
+.before-after {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 0;
+  padding: 24px 28px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.ba-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 64px;
+  align-items: center;
+  gap: 16px;
+}
+
+.ba-row-label {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.ba-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ba-bar {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.ba-bar-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.ba-bar-track {
+  position: relative;
+  height: 26px;
+  background: rgba(0, 0, 0, 0.025);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ba-bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ba-bar-before .ba-bar-fill {
+  background: rgba(0, 0, 0, 0.12);
+  color: var(--color-text);
+}
+
+.ba-bar-after .ba-bar-fill {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.ba-delta {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ba-caption {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 480px) {
+  .before-after {
+    padding: 18px 20px;
+    gap: 18px;
+  }
+  .ba-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .ba-row-label {
+    font-size: 0.95rem;
+  }
+  .ba-delta {
+    text-align: left;
+    font-size: 1rem;
+  }
+}
+
+/* Decision tree — binary tree with question/leaf nodes and yes/no edges, vertical-rail layout */
+.decision-tree {
+  margin: 24px 0 16px 0;
+  padding: 28px 24px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+}
+
+/* Recursive subtree: a node optionally followed by its children */
+.dt-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.dt-node {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  text-decoration: none !important;
+  color: var(--color-text);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Question — full-width step header */
+.dt-node--question {
+  align-self: stretch;
+  border: 1.5px solid var(--color-text);
+  padding: 14px 20px;
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 1.04rem;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.35;
+}
+
+/* Nested question — slightly less prominent than the root question */
+.dt-children .dt-node--question {
+  font-size: 0.96rem;
+  padding: 12px 18px;
+}
+
+/* Leaf — actionable card */
+.dt-node--leaf {
+  align-self: stretch;
+  padding: 16px 20px;
+  text-align: left;
+}
+
+a.dt-node--leaf:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+a.dt-node--leaf:hover .dt-action-name {
+  color: var(--color-accent);
+}
+
+/* Terminal "you're already set" leaf */
+.dt-node--terminal {
+  background: rgba(217, 119, 87, 0.05);
+  border-style: dashed;
+  border-color: var(--color-accent);
+}
+
+.dt-node--terminal .dt-action-label {
+  color: var(--color-accent);
+}
+
+.dt-action-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.dt-action-name {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.dt-leaf-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--color-border);
+}
+
+/* Children container — vertical rail */
+.dt-children {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 14px;
+  margin-left: 16px;
+  padding-left: 28px;
+  gap: 18px;
+}
+
+.dt-child {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Horizontal stub from rail to child */
+.dt-child::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -28px;
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-border);
+}
+
+/* Per-child rail segment: extends UP from this child's stub through the gap above.
+   Stacking these gives a continuous rail from parent down to the LAST child's stub,
+   so the rail terminates cleanly without a tail past the final branch. */
+.dt-child::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: -28px;
+  width: 1.5px;
+  height: 28px; /* 18px sibling gap + 10px to stub */
+  background: var(--color-border);
+}
+
+/* First child: gap above is the dt-children margin-top (14px), not the inter-child gap */
+.dt-children > .dt-child:first-child::after {
+  top: -14px;
+  height: 24px;
+}
+
+/* Yes/No edge label — pill chip introducing each branch */
+.dt-edge-label {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--color-text-muted);
+  color: var(--color-bg);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .decision-tree {
+    padding: 22px 16px;
+  }
+  .dt-node--question {
+    font-size: 0.96rem;
+    padding: 12px 16px;
+  }
+  .dt-children .dt-node--question {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+  .dt-node--leaf {
+    padding: 14px 16px;
+  }
+  .dt-children {
+    margin-left: 10px;
+    padding-left: 22px;
+  }
+  .dt-child::before {
+    left: -22px;
+    width: 18px;
+  }
+  .dt-child::after {
+    left: -22px;
+  }
+}
+
+/* RFP block — copy-paste appendix card */
+.rfp-block {
+  margin: 24px 0 32px 0;
+}
+
+.rfp-block:last-child {
+  margin-bottom: 0;
+}
+
+.rfp-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.rfp-question {
+  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0 0 14px 0;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.rfp-answer {
+  position: relative;
+  background: rgba(0, 0, 0, 0.025);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+
+.rfp-answer p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.rfp-answer p + p {
+  margin-top: 12px;
+}
+
+.rfp-answer a {
+  color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .rfp-answer {
+    padding: 16px 18px;
+  }
+  .rfp-answer p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Landscape callout — accent banner after the comparison table */
+.landscape-callout {
+  margin: 16px 0 0 0;
+  padding: 18px 22px;
+  background: rgba(217, 119, 87, 0.06);
+  border-radius: 8px;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.landscape-callout strong {
+  color: var(--color-accent);
+  font-weight: 600;
 }

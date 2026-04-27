@@ -32,7 +32,13 @@
       "Bash(python3:*)",
       "Bash(ls:*)",
       "Bash(cp:*)",
-      "WebFetch(domain:parlance-labs.com)"
+      "WebFetch(domain:parlance-labs.com)",
+      "Read(//c/Users/sjmsy/.claude/projects/C--Users-sjmsy-documents-OurDojo-ssyz-github-io/memory//**)",
+      "Read(//c/Users/sjmsy/.claude/projects/C--Users-sjmsy-documents-OurDojo-ssyz-github-io//**)",
+      "Bash(pdftotext -layout \"/c/Users/sjmsy/Downloads/[Pitch Deck] OurDojo, Co. \\(1\\).pdf\" -)",
+      "Bash(cp \"/c/Users/sjmsy/Downloads/[Pitch Deck] OurDojo, Co. \\(1\\).pdf\" /tmp/ourdojo-deck.pdf)",
+      "Bash(pdftotext -layout /tmp/ourdojo-deck.pdf /tmp/ourdojo-deck.txt)",
+      "Read(//tmp/**)"
     ]
   }
 }
