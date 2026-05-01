@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OurDojo — AI Evaluation System Diagnostic</title>
-  <meta name="description" content="AI Evaluation System Diagnostic — identify where your AI is failing and get a concrete plan to fix it in 3 weeks. OurDojo.">
-  <meta property="og:title" content="AI Evaluation System Diagnostic — OurDojo">
-  <meta property="og:description" content="Your AI is breaking in ways you can't see. We show you where, and how to fix it, in 3 weeks.">
+  <title>OurDojo — Diligence-grade GenAI evaluations</title>
+  <meta name="description" content="Diligence-grade GenAI evaluations for Series B–D organizations. Independent benchmarks and evaluation systems for your GenAI features — the kind of report your next round, your enterprise buyers, and your board will ask for.">
+  <meta property="og:title" content="Diligence-grade GenAI evaluations — OurDojo">
+  <meta property="og:description" content="Independent benchmarks and evaluation systems for your GenAI features. The kind of report your next round, your enterprise buyers, and your board will ask for.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ourdojo.org/programs/genai-diagnostic/">
   <meta property="og:image" content="https://ourdojo.org/images/ourdojo-2-nb.png">
@@ -63,7 +63,6 @@
     .page {
       width: 8.5in;
       min-height: 11in;
-      max-height: 11in;
       margin: 0.5in auto;
       background: var(--color-white);
       box-shadow: 0 2px 24px rgba(0,0,0,0.12);
@@ -311,11 +310,7 @@
       font-size: 0.93rem;
     }
 
-    /* ===== Team + CTA ===== */
-    .bottom-row {
-      display: block;
-    }
-
+    /* ===== Team ===== */
     .team {
       margin-bottom: 12px;
     }
@@ -357,6 +352,192 @@
       color: var(--color-text-muted);
     }
 
+    /* ===== Hero CTA + subtitle ===== */
+    .hero h1 + .hero-subtitle {
+      margin-top: 8px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 9px 20px;
+      background: var(--color-accent);
+      color: var(--color-white);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-cta:hover {
+      filter: brightness(0.95);
+    }
+
+    /* ===== Secondary hook (relocated) ===== */
+    .secondary-hook {
+      text-align: center;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-text);
+      max-width: 6.5in;
+      margin: 0 auto 14px;
+      line-height: 1.35;
+    }
+
+    /* ===== Pricing ===== */
+    .pricing-section {
+      margin-bottom: 24px;
+    }
+
+    .pricing-section h2 {
+      font-size: 0.93rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid var(--color-accent);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .pricing-tier {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+
+    .pricing-tier.is-featured {
+      background: var(--color-white);
+      border: 2px solid var(--color-accent);
+      padding: 13px 15px;
+      box-shadow: 0 1px 8px rgba(212, 168, 53, 0.18);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: var(--color-white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .pricing-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .pricing-price {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin: 2px 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .pricing-tier ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .pricing-tier li {
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .pricing-tier li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 8px 14px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: auto;
+      background: var(--color-white);
+      color: var(--color-accent);
+      border: 1.5px solid var(--color-accent);
+    }
+
+    .pricing-cta--primary {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+    }
+
+    .pricing-cta:hover {
+      filter: brightness(0.95);
+    }
+
+    /* ===== Deliverable tier indicator ===== */
+    .deliverable-tiers {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-muted);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .deliverable-tiers strong {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    /* ===== Final CTA ===== */
+    .final-cta {
+      text-align: center;
+      margin-top: 18px;
+      padding: 16px 14px;
+      background: var(--color-bg-alt);
+      border-radius: 8px;
+    }
+
+    .final-cta p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+
     /* ===== Print overrides ===== */
     @media print {
       body {
@@ -368,7 +549,6 @@
       .page {
         width: auto;
         min-height: auto;
-        max-height: none;
         margin: 0;
         padding: 0.4in 0.5in;
         box-shadow: none;
@@ -381,7 +561,6 @@
       .page {
         width: 100%;
         min-height: auto;
-        max-height: none;
         margin: 0;
         padding: 0.3in;
         box-shadow: none;
@@ -402,6 +581,11 @@
       .why-grid {
         grid-template-columns: 1fr;
       }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
     }
   </style>
 </head>
@@ -413,15 +597,15 @@
   <header class="header">
     <div class="header-left">
       <img src="../../images/ourdojo-2-nb.png" alt="OurDojo" class="header-logo">
-      <span class="header-title">AI Evaluation System Diagnostic</span>
+      <span class="header-title">GenAI Evaluations</span>
     </div>
     <a href="https://ourdojo.org" target="_blank" rel="noopener noreferrer" class="header-url">ourdojo.org</a>
   </header>
 
   <!-- ===== HERO ===== -->
   <section class="hero">
-    <h1>Your AI is breaking in ways you can’t see.<br>We show you where, and how to fix it, in 3 weeks.</h1>
-    <p class="stats">AI Evaluation System Diagnostic &middot; 3 Weeks</p>
+    <h1>Diligence-grade GenAI evaluations for Series B&ndash;D organizations</h1>
+    <p class="hero-subtitle">Independent benchmarks and evaluation systems for your GenAI features. The kind of report your next round, your enterprise buyers, and your board will ask for.</p>
   </section>
 
   <!-- ===== SELECT CLIENT RESULTS ===== -->
@@ -439,6 +623,60 @@
     </div>
   </section>
 
+  <!-- ===== PRICING ===== -->
+  <section class="pricing-section" id="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-grid">
+
+      <div class="pricing-tier">
+        <div class="pricing-name">Spot Check</div>
+        <div class="pricing-price">$1,500</div>
+        <ul>
+          <li>1-week turnaround</li>
+          <li>Single feature evaluated</li>
+          <li>Top 3 failure modes identified</li>
+          <li>1-page report</li>
+        </ul>
+        <a href="https://buy.stripe.com/8x2fZg3YF2GJ8vEcPGcAo00" class="pricing-cta pricing-cta--primary" target="_blank" rel="noopener noreferrer">Buy now</a>
+      </div>
+
+      <div class="pricing-tier is-featured">
+        <span class="pricing-badge">Most popular</span>
+        <div class="pricing-name">Diagnostic</div>
+        <div class="pricing-price">$3,000</div>
+        <ul>
+          <li>3-week engagement</li>
+          <li>Full error taxonomy</li>
+          <li>Evaluation specifications</li>
+          <li>Prioritized roadmap</li>
+        </ul>
+        <a href="https://calendar.app.google/kurSpdNPrCP3FERH8" class="pricing-cta pricing-cta--primary" target="_blank" rel="noopener noreferrer">Book intro call</a>
+      </div>
+
+      <div class="pricing-tier">
+        <div class="pricing-name">Diagnostic + Roadmap</div>
+        <div class="pricing-price">$7,500</div>
+        <ul>
+          <li>Everything in Diagnostic</li>
+          <li>30-min strategic readout with engineering leadership</li>
+          <li>Effort/impact-scored fix list</li>
+          <li>One quarterly check-in</li>
+        </ul>
+        <a href="https://calendar.app.google/kurSpdNPrCP3FERH8" class="pricing-cta" target="_blank" rel="noopener noreferrer">Book intro call</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== GUARANTEE ===== -->
+  <div class="guarantee">
+    <div class="guarantee-label">Guarantee</div>
+    <p>If we cannot deliver clarity on where your system is breaking and a concrete plan to fix it, we continue working at no additional cost until we do.</p>
+  </div>
+
+  <!-- ===== SECONDARY HOOK ===== -->
+  <p class="secondary-hook">Your AI is breaking in ways you can&rsquo;t see &mdash; we show you where, and how to fix it.</p>
+
   <!-- ===== WHO THIS IS FOR ===== -->
   <section class="why-section">
     <h2>Who This Is For</h2>
@@ -451,33 +689,33 @@
     </ul>
   </section>
 
-  <!-- ===== WHAT YOU GET ===== -->
+  <!-- ===== WHAT'S INCLUDED ===== -->
   <section class="diagnostic-section">
-    <h2>What You Get (3-Week Diagnostic)</h2>
+    <h2>What&rsquo;s included</h2>
     <div class="deliverables">
       <div class="deliverable">
         <div class="deliverable-name">Error Taxonomy</div>
-        <p class="deliverable-desc">What&rsquo;s breaking, how often, and how severely</p>
+        <p class="deliverable-desc">What&rsquo;s breaking, how often, how severely.</p>
         <ul>
-          <li>Identify where your AI system is failing (and why)</li>
-          <li>Map your highest-impact error modes</li>
+          <li>Highest-impact error modes mapped</li>
         </ul>
+        <div class="deliverable-tiers"><strong>Spot Check &middot; Diagnostic &middot; Diagnostic + Roadmap</strong></div>
       </div>
       <div class="deliverable">
         <div class="deliverable-name">Evaluation Specifications</div>
-        <p class="deliverable-desc">How to test your system reliably and repeatedly</p>
+        <p class="deliverable-desc">Tests for your system, designed to run repeatedly.</p>
         <ul>
-          <li>Design application-specific evals</li>
-          <li>Audit current metrics &amp; experimentation loop</li>
+          <li>Application-specific evals + metrics audit</li>
         </ul>
+        <div class="deliverable-tiers"><strong>Diagnostic &middot; Diagnostic + Roadmap</strong></div>
       </div>
       <div class="deliverable">
         <div class="deliverable-name">Prioritized Roadmap</div>
-        <p class="deliverable-desc">What to fix first for maximum impact</p>
+        <p class="deliverable-desc">What to fix first for maximum impact.</p>
         <ul>
-          <li>Identify bottlenecks slowing iteration</li>
-          <li>Rank fixes by effort vs. quality gain</li>
+          <li>Fixes ranked by effort vs. quality gain</li>
         </ul>
+        <div class="deliverable-tiers"><strong>Diagnostic + Roadmap</strong></div>
       </div>
     </div>
   </section>
@@ -488,22 +726,20 @@
     <p>OurDojo started in education, one of the most demanding environments for AI quality, with multi-layered standards from government regulation to research-backed learning frameworks. The evaluation infrastructure we built there applies to every GenAI product: mapping failure modes, designing domain-specific evals, and building feedback loops that let teams iterate with confidence.</p>
   </section>
 
-  <!-- ===== TEAM + CTA ===== -->
-  <div class="bottom-row">
-    <div class="team">
-      <h2>Your Team</h2>
-      <div class="team-lead">
-        <div class="team-lead-name">Jay Syz <span class="team-lead-role">&mdash; Founder &amp; Lead Evaluator</span></div>
-        <p class="team-lead-bio">Applied AI evaluation specialist with engineering foundations from Google. Built evaluation systems for venture-backed AI companies, identifying failure modes that drove double-digit accuracy improvements. Founded OurDojo to bring rigorous, independent evaluation to GenAI products.</p>
-      </div>
+  <!-- ===== TEAM ===== -->
+  <div class="team">
+    <h2>Your Team</h2>
+    <div class="team-lead">
+      <div class="team-lead-name">Jay Syz <span class="team-lead-role">&mdash; Founder &amp; Lead Evaluator</span></div>
+      <p class="team-lead-bio">Applied AI evaluation specialist with engineering foundations from Google. Built evaluation systems for venture-backed AI companies, identifying failure modes that drove double-digit accuracy improvements. Founded OurDojo to bring rigorous, independent evaluation to GenAI products.</p>
     </div>
   </div>
 
-  <!-- ===== GUARANTEE ===== -->
-  <div class="guarantee">
-    <div class="guarantee-label">Guarantee</div>
-    <p>If we cannot deliver clarity on where your system is breaking and a concrete plan to fix it in 3 weeks, we continue working at no additional cost until we do.</p>
-  </div>
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta">
+    <p>Ready to see where your GenAI is breaking?</p>
+    <a href="https://calendar.app.google/kurSpdNPrCP3FERH8" class="hero-cta" target="_blank" rel="noopener noreferrer">Book intro call</a>
+  </section>
 
 </div>
 
